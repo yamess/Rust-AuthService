@@ -1,0 +1,662 @@
+[2024-02-24 03:20:55 - INFO - Thread MAIN - crud: 25]: Logger initialized
+[2024-02-24 03:20:55 - INFO - Thread MAIN - crud: 26]: Starting server...
+[2024-02-24 03:20:55 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:20:55 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:26:39 - INFO - Thread MAIN - actix_server::server: 319]: SIGINT received; starting forced shutdown
+[2024-02-24 03:26:39 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 03:26:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:11 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:46 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:26:46 - INFO - Thread MAIN - crud: 25]: Starting server at 0.0.0.0:8000 ...
+[2024-02-24 03:26:46 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:26:46 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:26:57 - INFO - Thread MAIN - actix_server::server: 319]: SIGINT received; starting forced shutdown
+[2024-02-24 03:26:57 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:57 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:57 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:57 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:57 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:11 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:57 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:57 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:57 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:57 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:57 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 03:26:57 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:57 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:26:57 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:27:07 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:27:07 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:27:07 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:27:07 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:27:12 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+[2024-02-24 03:27:12 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET / HTTP/1.1" 404 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" 0.000168
+[2024-02-24 03:27:28 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_web::middleware::logger: 420]: 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+[2024-02-24 03:27:28 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET /health HTTP/1.1" 200 2 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" 0.001068
+[2024-02-24 03:27:29 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_web::middleware::logger: 420]: 127.0.0.1 Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+[2024-02-24 03:27:29 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET /favicon.ico HTTP/1.1" 404 0 "http://0.0.0.0:8000/health" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" 0.000162
+[2024-02-24 03:27:48 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 03:27:48 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET /health HTTP/1.1" 200 2 "-" "PostmanRuntime/7.36.3" 0.000230
+[2024-02-24 03:27:53 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 03:27:53 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET /health HTTP/1.1" 200 2 "-" "PostmanRuntime/7.36.3" 0.000209
+[2024-02-24 03:28:05 - INFO - Thread MAIN - actix_server::server: 319]: SIGINT received; starting forced shutdown
+[2024-02-24 03:28:05 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 03:28:05 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:05 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:11 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:05 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:05 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:05 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:05 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:05 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:05 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:05 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:05 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:05 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:05 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:14 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:28:14 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:28:14 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:28:14 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:28:15 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:28:15 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:28:15 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:28:15 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:28:15 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:28:16 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:28:16 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:28:16 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:28:16 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:28:16 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:28:16 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:28:16 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:28:16 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:28:17 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:28:17 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:28:17 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:28:17 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:28:17 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:28:17 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:28:17 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:28:17 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:28:18 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:28:18 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:28:18 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:28:18 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:28:19 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:28:19 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:28:19 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:28:19 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:28:19 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:28:19 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:28:19 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:28:19 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:28:19 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:28:19 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:28:20 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:28:20 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:28:20 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:28:20 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:28:21 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:28:21 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:28:21 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:28:21 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:28:21 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:28:21 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:28:21 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:28:21 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:28:21 - INFO - Thread MAIN - actix_server::server: 319]: SIGINT received; starting forced shutdown
+[2024-02-24 03:28:21 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 03:28:21 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:21 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:21 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:21 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:21 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:21 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:21 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:28:21 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:44:53 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:44:53 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:44:53 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:44:53 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:44:54 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:44:54 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:44:54 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:44:54 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:44:54 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:44:55 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:44:55 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:44:55 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:44:55 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:44:55 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:44:55 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:44:55 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:44:55 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:44:56 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:44:56 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:44:56 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:44:56 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:44:56 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:44:56 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:44:56 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:44:56 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:44:56 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:44:57 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:44:57 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:44:57 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:44:57 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:44:58 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:44:58 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:44:58 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:44:58 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:44:58 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:44:58 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:44:58 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:44:58 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:44:58 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:44:59 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:44:59 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:44:59 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:44:59 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:00 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:00 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:00 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:00 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:00 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:00 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:00 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:00 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:01 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:01 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:01 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:01 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:01 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:01 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:01 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:01 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:02 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:02 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:02 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:02 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:03 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:03 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:03 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:03 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:03 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:03 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:03 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:03 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:04 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:04 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:04 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:04 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:05 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:05 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:05 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:05 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:05 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:05 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:05 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:05 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:06 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:06 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:06 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:06 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:06 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:06 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:06 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:06 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:07 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:07 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:07 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:07 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:08 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:08 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:08 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:08 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:08 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:08 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:08 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:08 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:09 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:45:09 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:09 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:09 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:09 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:10 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:10 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:10 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:10 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:10 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:10 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:10 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:10 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:11 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:11 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:11 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:11 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:11 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:11 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:11 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:11 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:12 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:12 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:12 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:12 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:13 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:13 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:13 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:13 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:13 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:13 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:13 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:13 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:14 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:14 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:14 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:14 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:14 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:14 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:14 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:14 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:15 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:15 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:15 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:15 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:16 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:16 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:16 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:16 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:16 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:16 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:16 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:16 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:17 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:17 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:17 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:17 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:18 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:18 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:18 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:18 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:18 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:45:18 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:18 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:18 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:18 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:19 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:19 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:19 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:19 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:19 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:45:19 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:19 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:19 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:19 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:20 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:20 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:20 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:20 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:21 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:45:21 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:21 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:21 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:21 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:21 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:21 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:21 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:21 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:22 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:45:22 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 03:45:22 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:22 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:22 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:22 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:22 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:22 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:22 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:22 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:22 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:22 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:22 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:22 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:45:23 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:23 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:23 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:23 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:23 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:45:23 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:23 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:23 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:23 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:24 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:24 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:24 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:24 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:24 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:24 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:24 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:24 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:25 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:25 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:25 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:25 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:26 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:26 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:26 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:26 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:26 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:26 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:26 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:26 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:27 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:27 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:27 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:27 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:27 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:45:27 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 03:45:27 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:27 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:27 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:27 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:11 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:27 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:27 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:28 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:28 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:28 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:28 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:28 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:28 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:28 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:28 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:29 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:45:29 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:29 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:29 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:29 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:29 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:29 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:29 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:29 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:30 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:30 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:30 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:30 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:30 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:45:31 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:31 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:31 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:31 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:31 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:31 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:31 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:31 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:32 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:45:32 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:32 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:32 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:32 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:32 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:32 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:32 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:32 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:33 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:33 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:33 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:33 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:34 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:34 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:34 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:34 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:34 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:34 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:34 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:34 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:35 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:35 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:35 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:35 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:36 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:36 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:36 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:36 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:36 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 03:45:36 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:36 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:36 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:36 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:37 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:37 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:37 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:37 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:37 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:37 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:37 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:37 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:38 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:38 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:38 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:38 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:39 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:39 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:39 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:39 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:45:39 - INFO - Thread MAIN - actix_server::server: 319]: SIGINT received; starting forced shutdown
+[2024-02-24 03:45:39 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 03:45:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:39 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:11 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:45:40 - INFO - Thread MAIN - crud: 24]: Logger initialized
+[2024-02-24 03:45:40 - INFO - Thread MAIN - crud: 25]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 03:45:40 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 03:45:40 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 03:46:22 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 03:46:22 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET /health HTTP/1.1" 200 4 "-" "PostmanRuntime/7.36.3" 0.000304
+[2024-02-24 03:46:25 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 03:46:25 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET /health HTTP/1.1" 200 4 "-" "PostmanRuntime/7.36.3" 0.000226
+[2024-02-24 03:46:30 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 03:46:30 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET /health HTTP/1.1" 200 4 "-" "PostmanRuntime/7.36.3" 0.000277
+[2024-02-24 03:51:01 - INFO - Thread MAIN - actix_server::server: 319]: SIGINT received; starting forced shutdown
+[2024-02-24 03:51:01 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 03:51:01 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:51:01 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:51:01 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:51:01 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:51:01 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:51:01 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:51:01 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:11 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:51:01 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:51:01 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:51:01 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:51:01 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 03:51:01 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 04:26:14 - INFO - Thread MAIN - crud: 28]: Logger initialized
+[2024-02-24 04:26:14 - INFO - Thread MAIN - crud: 29]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 04:26:14 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 04:26:14 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 04:44:47 - INFO - Thread MAIN - actix_server::server: 319]: SIGINT received; starting forced shutdown
+[2024-02-24 04:44:47 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 04:44:47 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 04:44:47 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 04:44:47 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 04:44:47 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 04:44:47 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 04:44:47 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 04:44:47 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 04:44:47 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 04:44:47 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 04:44:47 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 04:44:47 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:11 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 04:44:47 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:08:18 - INFO - Thread MAIN - crud: 30]: Logger initialized
+[2024-02-24 05:08:18 - INFO - Thread MAIN - crud: 31]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 05:08:18 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 05:08:18 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 05:16:35 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 05:16:35 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET /health HTTP/1.1" 200 4 "-" "PostmanRuntime/7.36.3" 0.000271
+[2024-02-24 05:16:41 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 05:16:41 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET /health HTTP/1.1" 200 4 "-" "PostmanRuntime/7.36.3" 0.000217
+[2024-02-24 05:16:42 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 05:16:42 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET /health HTTP/1.1" 200 4 "-" "PostmanRuntime/7.36.3" 0.000296
+[2024-02-24 05:17:00 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 05:17:00 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_web::middleware::logger: 420]: 127.0.0.1 "POST /users HTTP/1.1" 404 21 "-" "PostmanRuntime/7.36.3" 0.000295
+[2024-02-24 05:18:19 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 05:18:19 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_web::middleware::logger: 420]: 127.0.0.1 "POST /users HTTP/1.1" 404 21 "-" "PostmanRuntime/7.36.3" 0.000260
+[2024-02-24 05:18:27 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 05:18:27 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_web::middleware::logger: 420]: 127.0.0.1 "POST /users HTTP/1.1" 404 21 "-" "PostmanRuntime/7.36.3" 0.000260
+[2024-02-24 05:18:56 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 05:18:56 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_web::middleware::logger: 420]: 127.0.0.1 "POST /users HTTP/1.1" 404 21 "-" "PostmanRuntime/7.36.3" 0.000309
+[2024-02-24 05:19:00 - INFO - Thread MAIN - actix_server::server: 319]: SIGINT received; starting forced shutdown
+[2024-02-24 05:19:00 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 05:19:00 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:00 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:00 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:00 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:00 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:00 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_server::worker: 608]: force shutdown worker, closing 1 connections
+[2024-02-24 05:19:00 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:00 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:00 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:00 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:11 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:00 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:00 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:02 - INFO - Thread MAIN - crud: 30]: Logger initialized
+[2024-02-24 05:19:02 - INFO - Thread MAIN - crud: 31]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 05:19:02 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 05:19:02 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 05:19:06 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 05:19:06 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 "POST /users HTTP/1.1" 404 21 "-" "PostmanRuntime/7.36.3" 0.000350
+[2024-02-24 05:19:30 - INFO - Thread MAIN - actix_server::server: 319]: SIGINT received; starting forced shutdown
+[2024-02-24 05:19:30 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 05:19:30 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:30 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:30 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:30 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:30 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:11 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:30 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:30 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:30 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:30 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:30 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:30 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:19:36 - INFO - Thread MAIN - crud: 30]: Logger initialized
+[2024-02-24 05:19:36 - INFO - Thread MAIN - crud: 31]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 05:19:36 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 05:19:36 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 05:19:47 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 05:19:47 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 "POST /users HTTP/1.1" 404 21 "-" "PostmanRuntime/7.36.3" 0.000327
+[2024-02-24 05:20:09 - INFO - Thread MAIN - actix_server::server: 319]: SIGINT received; starting forced shutdown
+[2024-02-24 05:20:09 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 05:20:09 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:20:09 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:20:09 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:20:09 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:20:09 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:20:09 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:11 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:20:09 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:20:09 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:20:09 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:20:09 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:20:09 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:20:09 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:20:15 - INFO - Thread MAIN - crud: 30]: Logger initialized
+[2024-02-24 05:20:15 - INFO - Thread MAIN - crud: 31]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 05:20:15 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 05:20:15 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 05:20:17 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - crud::routes::user_routes: 11]: Creating user: Json(UserCreate { email: "test@gmail.com", first_name: "Kary", last_name: "Yamess" })
+[2024-02-24 05:20:19 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 05:20:19 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 "POST /users HTTP/1.1" 200 171 "-" "PostmanRuntime/7.36.3" 1.224222
+[2024-02-24 05:20:32 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - crud::routes::user_routes: 11]: Creating user: Json(UserCreate { email: "test@gmail.com", first_name: "Kary", last_name: "Yamess" })
+[2024-02-24 05:20:32 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 05:20:32 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_web::middleware::logger: 420]: 127.0.0.1 "POST /users HTTP/1.1" 200 171 "-" "PostmanRuntime/7.36.3" 0.148232
+[2024-02-24 05:26:13 - INFO - Thread MAIN - actix_server::server: 319]: SIGINT received; starting forced shutdown
+[2024-02-24 05:26:13 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 05:26:13 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:26:13 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:26:13 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:11 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:26:13 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:26:13 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:26:13 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:26:13 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:26:13 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:26:13 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:26:13 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:26:13 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:26:13 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:40:25 - INFO - Thread MAIN - crud: 30]: Logger initialized
+[2024-02-24 05:40:25 - INFO - Thread MAIN - crud: 31]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 05:40:25 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 05:40:25 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 05:40:26 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 05:40:26 - INFO - Thread MAIN - crud: 30]: Logger initialized
+[2024-02-24 05:40:26 - INFO - Thread MAIN - crud: 31]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 05:40:26 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 05:40:26 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 05:40:26 - INFO - Thread MAIN - actix_server::server: 328]: SIGTERM received; starting graceful shutdown
+[2024-02-24 05:40:27 - INFO - Thread MAIN - crud: 30]: Logger initialized
+[2024-02-24 05:40:27 - INFO - Thread MAIN - crud: 31]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 05:40:27 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 05:40:27 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 05:40:27 - INFO - Thread MAIN - crud: 30]: Logger initialized
+[2024-02-24 05:40:27 - INFO - Thread MAIN - crud: 31]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 05:40:27 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 05:40:27 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 05:40:28 - INFO - Thread MAIN - crud: 30]: Logger initialized
+[2024-02-24 05:40:28 - INFO - Thread MAIN - crud: 31]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 05:40:28 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 05:40:28 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 05:40:28 - INFO - Thread MAIN - actix_server::server: 319]: SIGINT received; starting forced shutdown
+[2024-02-24 05:40:28 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 05:40:28 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:40:28 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:40:28 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:40:28 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:40:28 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:40:28 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:40:28 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:40:28 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:40:28 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:11 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:40:28 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:40:28 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:40:28 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:42:13 - INFO - Thread MAIN - crud: 30]: Logger initialized
+[2024-02-24 05:42:13 - INFO - Thread MAIN - crud: 31]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 05:42:13 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 05:42:13 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 05:42:19 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - crud::routes::user_routes: 11]: Creating user: Json(UserCreate { email: "test@gmail.com", first_name: "Kary", last_name: "Yamess" })
+[2024-02-24 05:42:20 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 05:42:20 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 "POST /users HTTP/1.1" 200 171 "-" "PostmanRuntime/7.36.3" 0.948716
+[2024-02-24 05:42:53 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - crud::routes::user_routes: 11]: Creating user: Json(UserCreate { email: "test@gmail.com", first_name: "Kary", last_name: "Yamess" })
+[2024-02-24 05:42:53 - ERROR - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - crud::repositories::user_repository: 69]: Failed to create user: duplicate key value violates unique constraint "users_email_unique"
+[2024-02-24 05:42:53 - ERROR - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - crud::routes::user_routes: 24]: Failed to create user: duplicate key value violates unique constraint "users_email_unique"
+[2024-02-24 05:42:53 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 05:42:53 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_web::middleware::logger: 420]: 127.0.0.1 "POST /users HTTP/1.1" 500 67 "-" "PostmanRuntime/7.36.3" 0.003854
+[2024-02-24 05:43:18 - INFO - Thread MAIN - actix_server::server: 319]: SIGINT received; starting forced shutdown
+[2024-02-24 05:43:18 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 05:43:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:43:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:43:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:43:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:11 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:43:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:43:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:43:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:43:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:43:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:43:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:43:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 05:43:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker

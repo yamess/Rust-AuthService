@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  crud-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: final
+    image: crud-server
+    container_name: crud-server
+    restart: always
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    env_file:
+      - .env
+    networks:
+      - griot_network
+
+networks:
+  griot_network:
+    external: true
