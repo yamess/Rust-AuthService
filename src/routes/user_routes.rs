@@ -3,6 +3,7 @@ use bb8::PooledConnection;
 use diesel::Insertable;
 use diesel_async::AsyncPgConnection;
 use diesel_async::pooled_connection::AsyncDieselConnectionManager;
+use uuid::{uuid, Uuid};
 
 use crate::helper::enums::Identifier;
 use crate::helper::type_alias::DbPool;
@@ -13,8 +14,9 @@ use crate::tables::users::dsl::users;
 pub struct UserRoutes;
 
 impl UserRoutes {
-    pub async fn conn(pool: &web::Data<DbPool>) -> PooledConnection<'_,
-        AsyncDieselConnectionManager<AsyncPgConnection>> {
+    pub async fn conn(
+        pool: &web::Data<DbPool>,
+    ) -> PooledConnection<'_, AsyncDieselConnectionManager<AsyncPgConnection>> {
         pool.get()
             .await
             .map_err(|e| {
@@ -63,10 +65,10 @@ impl UserRoutes {
         id: web::Path<uuid::Uuid>,
         user: web::Json<UserUpdate>,
     ) -> actix_web::Result<impl Responder> {
-        log::info!("Updating user: {:?}", user);
         let mut conn = UserRoutes::conn(&pool).await;
-
         let _id = id.into_inner();
+        log::info!("Updating user: {:?}", &_id);
+
         let user = user.into_inner();
         let updated_user = UserRepository::update(&mut conn, &Identifier::Id(_id), user).await;
 
@@ -74,6 +76,31 @@ impl UserRoutes {
             Ok(_user) => Ok(HttpResponse::Ok().json(_user)),
             Err(e) => {
                 log::error!("Failed to update user: {}", e);
+                Err(actix_web::error::ErrorInternalServerError(e))
+            }
+        }
+    }
+
+    pub async fn delete(
+        pool: web::Data<DbPool>,
+        id: web::Path<uuid::Uuid>,
+    ) -> actix_web::Result<impl Responder> {
+        let mut conn = UserRoutes::conn(&pool).await;
+        let _id = id.into_inner();
+        log::info!("Deleting user: {:?}", &_id);
+
+        let deletion_count = UserRepository::delete(&mut conn, &Identifier::Id(_id)).await;
+        log::info!("deletion_count: {:?}", deletion_count);
+        match deletion_count {
+            Ok(_count) => {
+                if _count == 1 {
+                    Ok(HttpResponse::Ok())
+                } else {
+                    Ok(HttpResponse::NotFound())
+                }
+            }
+            Err(e) => {
+                log::error!("Failed to delete user: {}", e);
                 Err(actix_web::error::ErrorInternalServerError(e))
             }
         }

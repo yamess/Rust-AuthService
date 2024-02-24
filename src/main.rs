@@ -51,6 +51,7 @@ async fn main() -> std::io::Result<()> {
             .route("/users", web::post().to(UserRoutes::create))
             .route("/users/{id}", web::get().to(UserRoutes::get))
             .route("/users/{id}", web::patch().to(UserRoutes::update))
+            .route("/users/{id}", web::delete().to(UserRoutes::delete))
     })
         .bind(format!(
             "{}:{}",

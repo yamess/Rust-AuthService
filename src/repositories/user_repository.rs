@@ -1,9 +1,9 @@
 use std::fmt::Debug;
 
 use chrono::NaiveDateTime;
+use diesel::result::Error;
 use diesel::ExpressionMethods;
 use diesel::QueryDsl;
-use diesel::result::Error;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
@@ -86,20 +86,16 @@ impl IRepository<'_, UserCreate, UserUpdate, User> for UserRepository {
 
     async fn get(conn: &mut AsyncPgConnection, id: &Identifier) -> Result<Option<User>, Error> {
         let user = match id {
-            Identifier::Id(_id) => {
-                users::table
-                    .find(_id)
-                    .get_result::<Self::Model>(conn)
-                    .await
-                    .map(Some)
-            }
-            Identifier::Email(_email) => {
-                users::table
-                    .filter(users::email.eq(_email))
-                    .get_result::<Self::Model>(conn)
-                    .await
-                    .map(Some)
-            }
+            Identifier::Id(_id) => users::table
+                .find(_id)
+                .get_result::<Self::Model>(conn)
+                .await
+                .map(Some),
+            Identifier::Email(_email) => users::table
+                .filter(users::email.eq(_email))
+                .get_result::<Self::Model>(conn)
+                .await
+                .map(Some),
         };
 
         match user {
@@ -122,8 +118,11 @@ impl IRepository<'_, UserCreate, UserUpdate, User> for UserRepository {
         }
     }
 
-    async fn update(conn: &mut AsyncPgConnection, id: &Identifier, new_data: UserUpdate) -> Result<User,
-        Error> {
+    async fn update(
+        conn: &mut AsyncPgConnection,
+        id: &Identifier,
+        new_data: UserUpdate,
+    ) -> Result<User, Error> {
         let user = match id {
             Identifier::Id(_id) => {
                 diesel::update(users::table.find(_id))
@@ -147,31 +146,40 @@ impl IRepository<'_, UserCreate, UserUpdate, User> for UserRepository {
             }
         };
         match user {
-            Ok(user) => Ok(User {
-                id: user.id,
-                email: user.email,
-                first_name: user.first_name,
-                last_name: user.last_name,
-                created_at: user.created_at,
-                updated_at: user.updated_at,
-            }),
+            Ok(user) => {
+                log::info!("User {:?} updated", user.id);
+                Ok(User {
+                    id: user.id,
+                    email: user.email,
+                    first_name: user.first_name,
+                    last_name: user.last_name,
+                    created_at: user.created_at,
+                    updated_at: user.updated_at,
+                })
+            }
             Err(e) => {
                 log::error!("Failed to update user: {}", e);
                 Err(e)
             }
         }
     }
+
+    async fn delete(conn: &mut AsyncPgConnection, id: &Identifier) -> Result<usize, Error> {
+        let num_deleted_row = match id {
+            Identifier::Id(_id) => diesel::delete(users::table.find(_id)).execute(conn).await,
+            Identifier::Email(_email) => {
+                diesel::delete(users::table.filter(users::email.eq(_email)))
+                    .execute(conn)
+                    .await
+            }
+        };
+
+        match num_deleted_row {
+            Ok(num_deleted_row) => Ok(num_deleted_row),
+            Err(e) => {
+                log::error!("Failed to delete user: {}", e);
+                Err(e)
+            }
+        }
+    }
 }
-// async fn delete(conn: &mut AsyncPgConnection, id: &Identifier) -> Result<usize, Error> {
-//     // delete user
-//     let num_deleted_row = diesel::delete(get_user_statement(id))
-//         .execute(conn)
-//         .await
-//         .map_err(|e| {
-//             log::error!("Failed to delete user: {}", e);
-//             e
-//         })
-//         .unwrap_or(0);
-//     Ok(num_deleted_row)
-// }
-// }
