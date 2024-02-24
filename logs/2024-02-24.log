@@ -660,3 +660,74 @@
 [2024-02-24 05:43:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
 [2024-02-24 05:43:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
 [2024-02-24 05:43:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 06:25:30 - INFO - Thread MAIN - crud: 29]: Logger initialized
+[2024-02-24 06:25:30 - INFO - Thread MAIN - crud: 30]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 06:25:30 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 06:25:30 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 06:50:44 - INFO - Thread MAIN - actix_server::server: 319]: SIGINT received; starting forced shutdown
+[2024-02-24 06:50:44 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 06:50:44 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 06:50:44 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 06:50:44 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 06:50:44 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 06:50:44 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 06:50:44 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 06:50:44 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 06:50:44 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 06:50:44 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 06:50:44 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 06:50:44 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:11 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 06:50:44 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 06:56:50 - INFO - Thread MAIN - crud: 29]: Logger initialized
+[2024-02-24 06:56:50 - INFO - Thread MAIN - crud: 30]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 06:56:50 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 06:56:50 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 06:59:54 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 06:59:54 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET /09af468f-615c-441b-bbb8-734ac7c02736 HTTP/1.1" 404 0 "-" "PostmanRuntime/7.36.3" 0.000206
+[2024-02-24 07:05:27 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - crud::routes::user_routes: 53]: Getting user: Id(09af468f-615c-441b-bbb8-734ac7c02736)
+[2024-02-24 07:05:27 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 07:05:27 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET /users/09af468f-615c-441b-bbb8-734ac7c02736 HTTP/1.1" 200 171 "-" "PostmanRuntime/7.36.3" 0.086371
+[2024-02-24 07:05:32 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - crud::routes::user_routes: 53]: Getting user: Id(09af468f-615c-441b-bbb8-734ac7c02736)
+[2024-02-24 07:05:32 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 07:05:32 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET /users/09af468f-615c-441b-bbb8-734ac7c02736 HTTP/1.1" 200 171 "-" "PostmanRuntime/7.36.3" 0.002022
+[2024-02-24 07:05:34 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - crud::routes::user_routes: 53]: Getting user: Id(09af468f-615c-441b-bbb8-734ac7c02736)
+[2024-02-24 07:05:34 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 07:05:34 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET /users/09af468f-615c-441b-bbb8-734ac7c02736 HTTP/1.1" 200 171 "-" "PostmanRuntime/7.36.3" 0.001981
+[2024-02-24 07:13:16 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - crud::routes::user_routes: 53]: Getting user: Id(09af468f-615c-441b-bbb8-734ac7c02736)
+[2024-02-24 07:13:16 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 07:13:16 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET /users/09af468f-615c-441b-bbb8-734ac7c02736 HTTP/1.1" 200 171 "-" "PostmanRuntime/7.36.3" 0.002663
+[2024-02-24 07:13:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - crud::routes::user_routes: 53]: Getting user: Id(09af468f-615c-441b-bbb8-734ac7c02736)
+[2024-02-24 07:13:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_web::middleware::logger: 420]: 127.0.0.1 PostmanRuntime/7.36.3
+[2024-02-24 07:13:18 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_web::middleware::logger: 420]: 127.0.0.1 "GET /users/09af468f-615c-441b-bbb8-734ac7c02736 HTTP/1.1" 200 171 "-" "PostmanRuntime/7.36.3" 0.002336
+[2024-02-24 07:53:55 - INFO - Thread MAIN - actix_server::server: 319]: SIGINT received; starting forced shutdown
+[2024-02-24 07:53:55 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 07:53:55 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:53:55 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:53:55 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:53:55 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:11 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:53:55 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:53:55 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:53:55 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:53:55 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:53:55 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:53:55 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:53:55 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:53:55 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:54:42 - INFO - Thread MAIN - crud: 29]: Logger initialized
+[2024-02-24 07:54:42 - INFO - Thread MAIN - crud: 30]: Starting server at http://0.0.0.0:8000 ...
+[2024-02-24 07:54:42 - INFO - Thread MAIN - actix_server::builder: 240]: starting 12 workers
+[2024-02-24 07:54:42 - INFO - Thread MAIN - actix_server::server: 196]: Actix runtime found; starting in Actix runtime
+[2024-02-24 07:55:04 - INFO - Thread MAIN - actix_server::server: 319]: SIGINT received; starting forced shutdown
+[2024-02-24 07:55:04 - INFO - Thread ACTIX-SERVER ACCEPTOR - actix_server::accept: 143]: accept thread stopped
+[2024-02-24 07:55:04 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:2 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:55:04 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:6 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:55:04 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:10 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:55:04 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:4 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:55:04 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:5 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:55:04 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:1 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:55:04 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:9 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:55:04 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:11 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:55:04 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:8 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:55:04 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:3 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:55:04 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:0 - actix_server::worker: 595]: shutting down idle worker
+[2024-02-24 07:55:04 - INFO - Thread ACTIX-RT|SYSTEM:0|ARBITER:7 - actix_server::worker: 595]: shutting down idle worker

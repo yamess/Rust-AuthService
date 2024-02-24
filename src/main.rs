@@ -1,12 +1,11 @@
 use std::sync::Arc;
 
-use actix_web::{middleware, web, App, HttpResponse, HttpServer};
+use actix_web::{App, HttpResponse, HttpServer, middleware, web};
 
 use configs::common::ApplicationConfig;
+use databases::async_postgres::AsyncPostgresPool;
 use helper::logger::initialize_logger;
-use routes::user_routes;
-
-use crate::databases::async_postgres::AsyncPostgresPool;
+use routes::user_routes::UserRoutes;
 
 mod configs;
 mod databases;
@@ -49,12 +48,14 @@ async fn main() -> std::io::Result<()> {
                 "/health",
                 web::to(|| async { HttpResponse::Ok().json("OK") }),
             )
-            .route("/users", web::post().to(user_routes::create_user))
+            .route("/users", web::post().to(UserRoutes::create))
+            .route("/users/{id}", web::get().to(UserRoutes::get))
+            .route("/users/{id}", web::patch().to(UserRoutes::update))
     })
-    .bind(format!(
-        "{}:{}",
-        &configs.server.app_host, &configs.server.app_port
-    ))?
-    .run()
-    .await
+        .bind(format!(
+            "{}:{}",
+            &configs.server.app_host, &configs.server.app_port
+        ))?
+        .run()
+        .await
 }
