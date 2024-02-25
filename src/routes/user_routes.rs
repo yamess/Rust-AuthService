@@ -1,37 +1,27 @@
-use actix_web::{HttpResponse, Responder, web};
+use actix_web::{web, HttpResponse, Responder};
 use bb8::PooledConnection;
 use diesel::Insertable;
-use diesel_async::AsyncPgConnection;
 use diesel_async::pooled_connection::AsyncDieselConnectionManager;
+use diesel_async::AsyncPgConnection;
 use uuid::{uuid, Uuid};
 
 use crate::helper::enums::Identifier;
 use crate::helper::type_alias::DbPool;
+use crate::helper::utils::get_connection;
 use crate::interfaces::repository_interface::IRepository;
-use crate::repositories::user_repository::{UserCreate, UserRepository, UserUpdate};
+use crate::repositories::user_repository::UserRepository;
+use crate::schemas::user_schemas::{UserCreate, UserUpdate};
 use crate::tables::users::dsl::users;
 
 pub struct UserRoutes;
 
 impl UserRoutes {
-    pub async fn conn(
-        pool: &web::Data<DbPool>,
-    ) -> PooledConnection<'_, AsyncDieselConnectionManager<AsyncPgConnection>> {
-        pool.get()
-            .await
-            .map_err(|e| {
-                log::error!("Failed to get pool: {}", e);
-                actix_web::error::ErrorInternalServerError(e)
-            })
-            .unwrap()
-    }
-
     pub async fn create(
         user: web::Json<UserCreate>,
         pool: web::Data<DbPool>,
     ) -> actix_web::Result<impl Responder> {
-        log::info!("Creating user: {:?}", user);
-        let mut conn = UserRoutes::conn(&pool).await;
+        log::info!("Creating user: {:?}", user.email);
+        let mut conn = get_connection(&pool).await;
         let _user = UserRepository::create(&mut conn, user.into_inner()).await;
         match _user {
             Ok(_user) => Ok(HttpResponse::Ok().json(_user)),
@@ -49,7 +39,7 @@ impl UserRoutes {
         let id = Identifier::Id(id.into_inner());
         log::info!("Getting user: {:?}", id);
 
-        let mut conn = UserRoutes::conn(&pool).await;
+        let mut conn = get_connection(&pool).await;
         let _user = UserRepository::get(&mut conn, &id).await;
         match _user {
             Ok(_user) => Ok(HttpResponse::Ok().json(_user)),
@@ -65,7 +55,7 @@ impl UserRoutes {
         id: web::Path<uuid::Uuid>,
         user: web::Json<UserUpdate>,
     ) -> actix_web::Result<impl Responder> {
-        let mut conn = UserRoutes::conn(&pool).await;
+        let mut conn = get_connection(&pool).await;
         let _id = id.into_inner();
         log::info!("Updating user: {:?}", &_id);
 
@@ -85,7 +75,7 @@ impl UserRoutes {
         pool: web::Data<DbPool>,
         id: web::Path<uuid::Uuid>,
     ) -> actix_web::Result<impl Responder> {
-        let mut conn = UserRoutes::conn(&pool).await;
+        let mut conn = get_connection(&pool).await;
         let _id = id.into_inner();
         log::info!("Deleting user: {:?}", &_id);
 

@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use actix_web::{App, HttpResponse, HttpServer, middleware, web};
+use actix_web::{middleware, web, App, HttpResponse, HttpServer};
 
 use configs::common::ApplicationConfig;
 use databases::async_postgres::AsyncPostgresPool;
@@ -15,6 +15,8 @@ mod models;
 mod repositories;
 mod routes;
 mod schema;
+mod schemas;
+mod services;
 mod tables;
 
 #[actix_web::main]
@@ -53,10 +55,10 @@ async fn main() -> std::io::Result<()> {
             .route("/users/{id}", web::patch().to(UserRoutes::update))
             .route("/users/{id}", web::delete().to(UserRoutes::delete))
     })
-        .bind(format!(
-            "{}:{}",
-            &configs.server.app_host, &configs.server.app_port
-        ))?
-        .run()
-        .await
+    .bind(format!(
+        "{}:{}",
+        &configs.server.app_host, &configs.server.app_port
+    ))?
+    .run()
+    .await
 }

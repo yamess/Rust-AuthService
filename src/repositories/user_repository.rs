@@ -1,5 +1,6 @@
 use std::fmt::Debug;
 
+use bcrypt::verify;
 use chrono::NaiveDateTime;
 use diesel::result::Error;
 use diesel::ExpressionMethods;
@@ -10,56 +11,29 @@ use uuid::Uuid;
 
 use crate::helper::enums::Identifier;
 use crate::helper::exceptions::RepositoryError;
+use crate::helper::utils::{hash_password, is_password_valid, verify_password};
 use crate::interfaces::repository_interface::IRepository;
 use crate::models::user_models::UserModel;
 use crate::schema::users;
-
-// fn get_user_statement(record_id: &Identifier)  {
-//     let user_statement = match record_id {
-//         Identifier::Id(_id) => {
-//             users.filter(id.eq(_id))
-//         }
-//         Identifier::email(_email) => {
-//             users.filter(email.eq(_email))
-//         }
-//     };
-//     user_statement
-// }
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct User {
-    pub id: Uuid,
-    pub email: String,
-    pub first_name: String,
-    pub last_name: String,
-    pub created_at: NaiveDateTime,
-    pub updated_at: Option<NaiveDateTime>,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct UserCreate {
-    pub email: String,
-    pub first_name: String,
-    pub last_name: String,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct UserUpdate {
-    pub first_name: String,
-    pub last_name: String,
-}
+use crate::schemas::user_schemas::{UserCreate, UserResponse, UserUpdate};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct UserRepository;
 
-impl IRepository<'_, UserCreate, UserUpdate, User> for UserRepository {
+impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
     type Model = UserModel;
-    async fn create(conn: &mut AsyncPgConnection, data: UserCreate) -> Result<User, Error> {
+
+    async fn create(conn: &mut AsyncPgConnection, data: UserCreate) -> Result<UserResponse, Error> {
+        if !is_password_valid(&data.password) {
+            log::error!("Password length must be at least 8 characters");
+            panic!("Password length must be at least 8 characters")
+        }
+        let hashed_password = hash_password(&data.password);
+
         let new_user = Self::Model {
             id: Uuid::new_v4(),
             email: data.email,
-            first_name: data.first_name,
-            last_name: data.last_name,
+            password: hashed_password,
             created_at: chrono::Utc::now().naive_utc(),
             updated_at: None,
         };
@@ -73,18 +47,19 @@ impl IRepository<'_, UserCreate, UserUpdate, User> for UserRepository {
                 log::error!("Failed to create user: {}", e);
                 Err(e)
             }
-            Ok(created_user) => Ok(User {
+            Ok(created_user) => Ok(UserResponse {
                 id: created_user.id,
                 email: created_user.email,
-                first_name: created_user.first_name,
-                last_name: created_user.last_name,
                 created_at: created_user.created_at,
                 updated_at: created_user.updated_at,
             }),
         }
     }
 
-    async fn get(conn: &mut AsyncPgConnection, id: &Identifier) -> Result<Option<User>, Error> {
+    async fn get(
+        conn: &mut AsyncPgConnection,
+        id: &Identifier,
+    ) -> Result<Option<UserResponse>, Error> {
         let user = match id {
             Identifier::Id(_id) => users::table
                 .find(_id)
@@ -103,11 +78,9 @@ impl IRepository<'_, UserCreate, UserUpdate, User> for UserRepository {
                 log::warn!("User not found for user {:?}", id);
                 Ok(None)
             }
-            Ok(Some(user)) => Ok(Some(User {
+            Ok(Some(user)) => Ok(Some(UserResponse {
                 id: user.id,
                 email: user.email,
-                first_name: user.first_name,
-                last_name: user.last_name,
                 created_at: user.created_at,
                 updated_at: user.updated_at,
             })),
@@ -122,37 +95,46 @@ impl IRepository<'_, UserCreate, UserUpdate, User> for UserRepository {
         conn: &mut AsyncPgConnection,
         id: &Identifier,
         new_data: UserUpdate,
-    ) -> Result<User, Error> {
-        let user = match id {
+    ) -> Result<UserResponse, Error> {
+        // Verify password validity
+        if !is_password_valid(&new_data.new_password) {
+            log::error!("Password length must be at least 8 characters");
+            panic!("Password length must be at least 8 characters")
+        }
+        let old_data = match id {
             Identifier::Id(_id) => {
-                diesel::update(users::table.find(_id))
-                    .set((
-                        users::first_name.eq(new_data.first_name),
-                        users::last_name.eq(new_data.last_name),
-                        users::updated_at.eq(chrono::Utc::now().naive_utc()),
-                    ))
+                users::table
+                    .find(_id)
                     .get_result::<Self::Model>(conn)
-                    .await
+                    .await?
             }
             Identifier::Email(_email) => {
-                diesel::update(users::table.filter(users::email.eq(_email)))
-                    .set((
-                        users::first_name.eq(new_data.first_name),
-                        users::last_name.eq(new_data.last_name),
-                        users::updated_at.eq(chrono::Utc::now().naive_utc()),
-                    ))
+                users::table
+                    .filter(users::email.eq(_email))
                     .get_result::<Self::Model>(conn)
-                    .await
+                    .await?
             }
         };
+        if !verify_password(&new_data.old_password, &old_data.password) {
+            log::error!("Wrong credentials for user {}", old_data.email);
+            panic!("Wrong credentials for user {}", old_data.id)
+        }
+
+        let hashed_password = hash_password(&new_data.new_password);
+        let user = diesel::update(&old_data)
+            .set((
+                users::password.eq(hashed_password),
+                users::updated_at.eq(chrono::Utc::now().naive_utc()),
+            ))
+            .get_result::<Self::Model>(conn)
+            .await;
+
         match user {
             Ok(user) => {
                 log::info!("User {:?} updated", user.id);
-                Ok(User {
+                Ok(UserResponse {
                     id: user.id,
                     email: user.email,
-                    first_name: user.first_name,
-                    last_name: user.last_name,
                     created_at: user.created_at,
                     updated_at: user.updated_at,
                 })
