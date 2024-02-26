@@ -29,4 +29,31 @@ impl AuthRoutes {
             }
         }
     }
+
+    // @TODO: temporary function to test the authentication (decode token)
+    pub async fn authenticate(
+        pool: web::Data<DbPool>,
+        app_config: web::Data<Arc<ApplicationConfig>>,
+        req: actix_web::HttpRequest,
+    ) -> actix_web::Result<impl Responder> {
+        log::info!("Authenticating user");
+        log::info!("Request: {:?}", req);
+
+        let bearer = req.headers().get("Authorization");
+        let token = match bearer {
+            Some(token) => token.to_str().unwrap().split_whitespace().last().unwrap(),
+            None => return Err(actix_web::error::ErrorUnauthorized("No token provided")),
+        };
+        log::info!("Token: {}", token);
+
+        let mut conn = get_connection(&pool).await;
+        let payload = AuthService::decode_token(&token, &app_config.auth).await;
+        match payload {
+            Ok(data) => Ok(actix_web::HttpResponse::Ok().json(data)),
+            Err(e) => {
+                log::error!("Failed to authenticate: {}", e);
+                Err(actix_web::error::ErrorInternalServerError(e))
+            }
+        }
+    }
 }

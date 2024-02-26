@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 use bcrypt;
 use chrono::Duration;
 use diesel::ExpressionMethods;
@@ -41,7 +43,7 @@ impl AuthService {
                 let token = Self::generate_token(
                     &auth_config.secret_key,
                     TokenClaims {
-                        aud: auth_config.to_owned().audience,
+                        aud: Some(auth_config.to_owned().audience),
                         exp: expiration_time,
                         iat: creation_time,
                         iss: auth_config.to_owned().issuer,
@@ -72,5 +74,28 @@ impl AuthService {
             })
             .unwrap();
         token
+    }
+
+    pub async fn decode_token(
+        token: &str,
+        auth_config: &AuthConfig,
+    ) -> Result<TokenClaims, jsonwebtoken::errors::Error> {
+        let mut validation = Validation::new(Algorithm::HS256);
+        validation.set_audience(&[auth_config.audience.to_owned()]);
+        validation.set_issuer(&[auth_config.issuer.to_owned()]);
+        validation.validate_aud = true;
+        validation.validate_nbf = true;
+        validation.validate_exp = true;
+
+        let token_data = decode::<TokenClaims>(
+            token,
+            &DecodingKey::from_secret(&auth_config.secret_key.as_ref()),
+            &validation,
+        );
+        token_data.map(|data| data.claims
+        ).map_err(|e| {
+            log::error!("Failed to authenticate token: {}", e);
+            e
+        })
     }
 }
