@@ -1,5 +1,3 @@
-use std::sync::Arc;
-
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -39,16 +37,16 @@ pub struct ApplicationConfig {
 }
 
 impl ApplicationConfig {
-    pub fn new() -> Arc<ApplicationConfig> {
+    pub fn new() -> ApplicationConfig {
         let server_config = envy::from_env::<ServerConfig>().unwrap();
         let log_config = envy::from_env::<LogConfig>().unwrap();
         let database_config = envy::from_env::<DatabaseConfig>().unwrap();
         let auth_config = envy::from_env::<AuthConfig>().unwrap();
-        Arc::new(Self {
+        Self {
             server: server_config,
             logger: log_config,
             database: database_config,
             auth: auth_config,
-        })
+        }
     }
 }

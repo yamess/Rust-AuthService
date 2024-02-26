@@ -20,35 +20,37 @@ pub struct AuthService;
 impl AuthService {
     pub async fn login(
         conn: &mut AsyncPgConnection,
-        email: String,
-        password: String,
-        auth_config: AuthConfig,
+        login_request: LoginRequest,
+        auth_config: &AuthConfig,
     ) -> Result<LoginResponse, Error> {
         let user = users::table
-            .filter(users::email.eq(&email))
+            .filter(users::email.eq(&login_request.email))
             .get_result::<UserModel>(conn)
             .await;
 
         match user {
             Ok(_user) => {
-                if !verify_password(&password, &_user.password) {
-                    log::error!("Wrong credentials for user {}", &email);
+                log::info!("User found: {}", &login_request.email);
+                if !verify_password(&login_request.password, &_user.password) {
+                    log::error!("Wrong credentials for user {}", &login_request.email);
                     return Err(Error::NotFound);
                 }
                 let creation_time = chrono::Utc::now().timestamp();
-                let expiration_time = chrono::Utc::now().timestamp() + Duration::minutes(auth_config.token_expire_minutes).num_seconds();
+                let expiration_time = chrono::Utc::now().timestamp()
+                    + Duration::minutes(auth_config.token_expire_minutes).num_seconds();
                 let token = Self::generate_token(
-                    auth_config.secret_key,
+                    &auth_config.secret_key,
                     TokenClaims {
-                        aud: auth_config.audience,
+                        aud: auth_config.to_owned().audience,
                         exp: expiration_time,
                         iat: creation_time,
-                        iss: auth_config.issuer,
+                        iss: auth_config.to_owned().issuer,
                         nbf: creation_time,
                         sub: _user.id.to_string(),
                         email: _user.email,
                     },
-                ).await;
+                )
+                    .await;
                 Ok(LoginResponse { token })
             }
             Err(e) => {
@@ -58,15 +60,17 @@ impl AuthService {
         }
     }
 
-    async fn generate_token(secret: String, claim: TokenClaims) -> String {
+    async fn generate_token(secret: &str, claim: TokenClaims) -> String {
         let token = encode(
             &Header::default(),
             &claim,
             &EncodingKey::from_secret(secret.as_ref()),
-        ).map_err(|e| {
-            log::error!("Failed to generate token: {}", e);
-            e
-        }).unwrap();
+        )
+            .map_err(|e| {
+                log::error!("Failed to generate token: {}", e);
+                e
+            })
+            .unwrap();
         token
     }
 }
