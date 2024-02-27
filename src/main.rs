@@ -20,6 +20,7 @@ mod schema;
 mod schemas;
 mod services;
 mod tables;
+mod middlewares;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {

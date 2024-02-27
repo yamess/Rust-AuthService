@@ -9,6 +9,15 @@ edition = "2021"
 name = "crud"
 path = "src/main.rs"
 
+# Performance config
+[profile.release]
+lto = false # Disable LTO (Link Time Optimization). This is a trade-off between compile time and runtime performance.
+codegen-units = 1
+opt-level = 3
+#debug = 1
+#panic = "abort"
+
+
 [dependencies]
 actix-web = "4.5.1"
 bb8 = "0.8.3"
