@@ -1,6 +1,4 @@
 use actix_web::{web, HttpResponse, Responder};
-use bb8::PooledConnection;
-use diesel::Insertable;
 use diesel_async::pooled_connection::AsyncDieselConnectionManager;
 use diesel_async::AsyncPgConnection;
 use uuid::{uuid, Uuid};

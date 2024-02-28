@@ -62,10 +62,4 @@ diesel::joinable!(schedules -> students (student_id));
 diesel::joinable!(students -> schools (school_id));
 diesel::joinable!(students -> users (user_id));
 
-diesel::allow_tables_to_appear_in_same_query!(
-    classes,
-    schedules,
-    schools,
-    students,
-    users,
-);
+diesel::allow_tables_to_appear_in_same_query!(classes, schedules, schools, students, users,);

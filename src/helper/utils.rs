@@ -1,7 +1,7 @@
 use actix_web::web;
 use bb8::PooledConnection;
-use diesel_async::AsyncPgConnection;
 use diesel_async::pooled_connection::AsyncDieselConnectionManager;
+use diesel_async::AsyncPgConnection;
 
 use crate::helper::type_alias::DbPool;
 

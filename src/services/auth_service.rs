@@ -2,18 +2,17 @@ use std::collections::HashSet;
 
 use bcrypt;
 use chrono::Duration;
+use diesel::result::Error;
 use diesel::ExpressionMethods;
 use diesel::QueryDsl;
-use diesel::result::Error;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
-use jsonwebtoken::{Algorithm, decode, DecodingKey, encode, EncodingKey, Header, Validation};
+use jsonwebtoken::{decode, encode, Algorithm, DecodingKey, EncodingKey, Header, Validation};
 
 use crate::configs::common::AuthConfig;
 use crate::helper::enums::Identifier;
 use crate::helper::utils::verify_password;
 use crate::interfaces::repository_interface::IRepository;
 use crate::models::user_models::UserModel;
-use crate::repositories::user_repository::UserRepository;
 use crate::schema::users;
 use crate::schemas::auth_schema::{LoginRequest, LoginResponse, TokenClaims};
 
@@ -52,7 +51,7 @@ impl AuthService {
                         email: _user.email,
                     },
                 )
-                    .await;
+                .await;
                 Ok(LoginResponse { token })
             }
             Err(e) => {
@@ -68,11 +67,11 @@ impl AuthService {
             &claim,
             &EncodingKey::from_secret(secret.as_ref()),
         )
-            .map_err(|e| {
-                log::error!("Failed to generate token: {}", e);
-                e
-            })
-            .unwrap();
+        .map_err(|e| {
+            log::error!("Failed to generate token: {}", e);
+            e
+        })
+        .unwrap();
         token
     }
 
@@ -92,8 +91,7 @@ impl AuthService {
             &DecodingKey::from_secret(&auth_config.secret_key.as_ref()),
             &validation,
         );
-        token_data.map(|data| data.claims
-        ).map_err(|e| {
+        token_data.map(|data| data.claims).map_err(|e| {
             log::error!("Failed to authenticate token: {}", e);
             e
         })

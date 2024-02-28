@@ -57,13 +57,7 @@ table! {
     }
 }
 
-allow_tables_to_appear_in_same_query!(
-    users,
-    schools,
-    students,
-    classes,
-    schedules,
-);
+allow_tables_to_appear_in_same_query!(users, schools, students, classes, schedules,);
 
 joinable!(students -> users (user_id));
 joinable!(students -> schools (school_id));

@@ -1,9 +1,9 @@
 use std::sync::Arc;
 
-use actix_web::{Responder, web};
+use actix_web::{web, Responder};
 use diesel::result::Error;
 
-use crate::configs::common::{ApplicationConfig, AuthConfig};
+use crate::configs::common::ApplicationConfig;
 use crate::helper::type_alias::DbPool;
 use crate::helper::utils::get_connection;
 use crate::schemas::auth_schema::LoginRequest;
@@ -46,7 +46,6 @@ impl AuthRoutes {
         };
         log::info!("Token: {}", token);
 
-        let mut conn = get_connection(&pool).await;
         let payload = AuthService::decode_token(&token, &app_config.auth).await;
         match payload {
             Ok(data) => Ok(actix_web::HttpResponse::Ok().json(data)),
