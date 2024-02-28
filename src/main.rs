@@ -1,6 +1,7 @@
 use std::sync::Arc;
 
-use actix_web::{middleware, web, App, HttpResponse, HttpServer};
+use actix_web::{App, HttpResponse, HttpServer, middleware, web};
+use utoipa::OpenApi;
 use utoipa_swagger_ui::SwaggerUi;
 
 use configs::common::ApplicationConfig;
@@ -8,7 +9,6 @@ use databases::async_postgres::AsyncPostgresPool;
 use helper::logger::initialize_logger;
 use routes::user_routes::UserRoutes;
 
-use crate::helper::swagger_docs::ApiDoc;
 use crate::middlewares::timer_middleware::{TimerMiddleware, TimerMiddlewareTransform};
 use crate::routes::auth_routes::AuthRoutes;
 use crate::routes::school_routes::SchoolRoutes;
@@ -28,10 +28,8 @@ mod tables;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    let configs = Arc::new(ApplicationConfig::new()); // Creates arc reference to share across threads
-    let state = Arc::clone(&configs); // This reference is used to pass the application state to
-                                      // the routes
-
+    let state = web::Data::new(ApplicationConfig::new());
+    let configs = state.clone();
     let pool = AsyncPostgresPool::new(&configs.database).await;
 
     initialize_logger(&configs.logger.log_folder)
@@ -53,12 +51,8 @@ async fn main() -> std::io::Result<()> {
             .wrap(middleware::NormalizePath::new(
                 middleware::TrailingSlash::Trim,
             ))
-            .app_data(web::Data::new(state.clone()))
+            .app_data(state.clone())
             .app_data(web::Data::new(pool.pool.clone()))
-            .service(
-                SwaggerUi::new("/swagger-ui/{_:.*}")
-                    .uri("/api-docs/openapi.json", ApiDoc::openapi()),
-            )
             .route(
                 "/health",
                 web::to(|| async { HttpResponse::Ok().json("OK") }),
@@ -77,11 +71,11 @@ async fn main() -> std::io::Result<()> {
                 web::get().to(AuthRoutes::authenticate),
             )
     })
-    .bind(format!(
-        "{}:{}",
-        Arc::clone(&configs).server.app_host,
-        Arc::clone(&configs).server.app_port //&configs.server.app_host, &configs.server.app_port
-    ))?
-    .run()
-    .await
+        .bind(format!(
+            "{}:{}",
+            Arc::clone(&configs).server.app_host,
+            Arc::clone(&configs).server.app_port //&configs.server.app_host, &configs.server.app_port
+        ))?
+        .run()
+        .await
 }

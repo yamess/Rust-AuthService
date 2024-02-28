@@ -1,18 +1,18 @@
 use serde::{Deserialize, Serialize};
-use utoipa::IntoParams;
+use utoipa::ToSchema;
 
-#[derive(Debug, Serialize, Deserialize, IntoParams)]
+#[derive(Debug, Serialize, Deserialize, ToSchema)]
 pub struct LoginRequest {
     pub email: String,
     pub password: String,
 }
 
-#[derive(Debug, Serialize, Deserialize, IntoParams)]
+#[derive(Debug, Serialize, Deserialize, ToSchema)]
 pub struct LoginResponse {
     pub token: String,
 }
 
-#[derive(Debug, Serialize, Deserialize, IntoParams)]
+#[derive(Debug, Serialize, Deserialize, ToSchema)]
 pub struct TokenClaims {
     pub aud: Option<String>,
     pub exp: i64,

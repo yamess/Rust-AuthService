@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use actix_web::{web, Responder};
+use actix_web::{Responder, web};
 use diesel::result::Error;
 
 use crate::configs::common::ApplicationConfig;
@@ -15,7 +15,7 @@ impl AuthRoutes {
     pub async fn login(
         pool: web::Data<DbPool>,
         auth: web::Json<LoginRequest>,
-        app_config: web::Data<Arc<ApplicationConfig>>,
+        app_config: web::Data<ApplicationConfig>,
     ) -> actix_web::Result<impl Responder> {
         log::info!("Logging in: {:?}", auth.email);
         let mut conn = get_connection(&pool).await;
@@ -33,7 +33,7 @@ impl AuthRoutes {
     // @TODO: temporary function to test the authentication (decode token)
     pub async fn authenticate(
         pool: web::Data<DbPool>,
-        app_config: web::Data<Arc<ApplicationConfig>>,
+        app_config: web::Data<ApplicationConfig>,
         req: actix_web::HttpRequest,
     ) -> actix_web::Result<impl Responder> {
         log::info!("Authenticating user");

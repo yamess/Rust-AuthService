@@ -1,6 +1,7 @@
-use actix_web::{web, HttpResponse, Responder};
-use diesel_async::pooled_connection::AsyncDieselConnectionManager;
+use actix_web::{HttpResponse, Responder, web};
 use diesel_async::AsyncPgConnection;
+use diesel_async::pooled_connection::AsyncDieselConnectionManager;
+use utoipa;
 use uuid::{uuid, Uuid};
 
 use crate::helper::enums::Identifier;
@@ -9,6 +10,7 @@ use crate::helper::utils::get_connection;
 use crate::interfaces::repository_interface::IRepository;
 use crate::repositories::user_repository::UserRepository;
 use crate::schemas::user_schemas::{UserCreate, UserUpdate};
+use crate::services::auth_extractor_service::AuthExtractorService;
 use crate::tables::users::dsl::users;
 
 pub struct UserRoutes;
@@ -33,6 +35,7 @@ impl UserRoutes {
     pub async fn get(
         pool: web::Data<DbPool>,
         id: web::Path<uuid::Uuid>,
+        auth: AuthExtractorService,
     ) -> actix_web::Result<impl Responder> {
         let id = Identifier::Id(id.into_inner());
         log::info!("Getting user: {:?}", id);

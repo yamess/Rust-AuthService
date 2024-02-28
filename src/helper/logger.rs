@@ -64,7 +64,7 @@ pub async fn initialize_logger(log_folder: &str) -> Result<(), fern::InitError> 
         .chain(std::io::stdout());
 
     fern::Dispatch::new()
-        .level(log::LevelFilter::Info)
+        .level(log::LevelFilter::Debug)
         .chain(console_dispatcher)
         .chain(file_dispatcher)
         .apply()?;
