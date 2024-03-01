@@ -1,4 +1,5 @@
 use actix_web::web;
+use uuid::Uuid;
 
 use crate::helper::enums::Identifier;
 use crate::helper::type_alias::DbPool;
@@ -28,10 +29,10 @@ impl StudentRoutes {
     }
     pub async fn get(
         pool: web::Data<DbPool>,
-        id: web::Path<i32>,
+        id: web::Path<Uuid>,
     ) -> actix_web::Result<impl actix_web::Responder> {
         let mut conn = get_connection(&pool).await;
-        let _id = Identifier::Int(id.into_inner());
+        let _id = Identifier::Id(id.into_inner());
         let student = StudentRepository::get(&mut conn, &_id).await;
         match student {
             Ok(student) => Ok(actix_web::HttpResponse::Ok().json(student)),
@@ -44,11 +45,11 @@ impl StudentRoutes {
 
     pub async fn update(
         pool: web::Data<DbPool>,
-        id: web::Path<i32>,
+        id: web::Path<Uuid>,
         student: web::Json<StudentUpdate>,
     ) -> actix_web::Result<impl actix_web::Responder> {
         let mut conn = get_connection(&pool).await;
-        let _id = Identifier::Int(id.into_inner());
+        let _id = Identifier::Id(id.into_inner());
         log::info!("Updating student: {:?}", &_id);
         let student = student.into_inner();
         let student = StudentRepository::update(&mut conn, &_id, student).await;
@@ -63,10 +64,10 @@ impl StudentRoutes {
 
     pub async fn delete(
         pool: web::Data<DbPool>,
-        id: web::Path<i32>,
+        id: web::Path<Uuid>,
     ) -> actix_web::Result<impl actix_web::Responder> {
         let mut conn = get_connection(&pool).await;
-        let _id = Identifier::Int(id.into_inner());
+        let _id = Identifier::Id(id.into_inner());
         log::info!("Deleting student: {:?}", &_id);
         let deleted_student = StudentRepository::delete(&mut conn, &_id).await;
         match deleted_student {

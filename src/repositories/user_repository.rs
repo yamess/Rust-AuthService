@@ -31,15 +31,12 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
         }
         let hashed_password = PasswordService::hash(&data.password);
 
-        let new_user = Self::Model {
-            id: Uuid::new_v4(),
-            email: data.email,
-            password: hashed_password,
-            is_active: data.is_active,
-            is_admin: data.is_admin,
-            created_at: chrono::Utc::now().naive_utc(),
-            updated_at: None,
-        };
+        let new_user = Self::Model::new(
+            data.email,
+            hashed_password,
+            data.is_active,
+            data.is_admin,
+        );
         // create user
         let created_user = diesel::insert_into(crate::schema::users::table)
             .values(&new_user)
@@ -75,11 +72,7 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
                 .filter(users::email.eq(_email))
                 .get_result::<Self::Model>(conn)
                 .await
-                .map(Some),
-            _ => {
-                log::error!("Invalid identifier");
-                Err(Error::NotFound)
-            }
+                .map(Some)
         };
 
         match user {
@@ -108,9 +101,9 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
         new_data: UserUpdate,
     ) -> Result<UserResponse, Error> {
         let old_data = match id {
-            Identifier::Id(_id) => {
+            Identifier::Id(id) => {
                 users::table
-                    .find(_id)
+                    .find(id)
                     .get_result::<Self::Model>(conn)
                     .await?
             }
@@ -119,10 +112,6 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
                     .filter(users::email.eq(_email))
                     .get_result::<Self::Model>(conn)
                     .await?
-            }
-            _ => {
-                log::error!("Invalid identifier");
-                return Err(Error::NotFound);
             }
         };
 
@@ -161,10 +150,6 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
                 diesel::delete(users::table.filter(users::email.eq(_email)))
                     .execute(conn)
                     .await
-            }
-            _ => {
-                log::error!("Invalid identifier");
-                return Err(Error::NotFound);
             }
         };
 

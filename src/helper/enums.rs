@@ -5,7 +5,6 @@ use uuid::Uuid;
 pub enum Identifier {
     Id(Uuid),
     Email(String),
-    Int(i32),
 }
 
 #[derive(Debug, Serialize, Deserialize)]

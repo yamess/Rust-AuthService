@@ -1,5 +1,6 @@
 use diesel::{AsChangeset, Identifiable, Insertable, Queryable, Selectable};
 use serde::{Deserialize, Serialize};
+use uuid::Uuid;
 
 use crate::schema::students;
 
@@ -15,8 +16,9 @@ Debug,
 PartialEq,
 )]
 #[diesel(table_name = students)]
+#[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct StudentModel {
-    pub id: i32,
+    pub id: Uuid,
     pub first_name: String,
     pub last_name: String,
     pub program: String,
@@ -35,19 +37,17 @@ impl StudentModel {
         department: Option<String>,
         user_id: uuid::Uuid,
         school_id: uuid::Uuid,
-        created_at: chrono::NaiveDateTime,
-        updated_at: Option<chrono::NaiveDateTime>,
     ) -> Self {
         Self {
-            id: 0,
+            id: Uuid::new_v4(),
             first_name,
             last_name,
             program,
             department,
             user_id,
             school_id,
-            created_at,
-            updated_at,
+            created_at: chrono::Utc::now().naive_utc(),
+            updated_at: None,
         }
     }
 }

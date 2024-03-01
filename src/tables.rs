@@ -11,7 +11,6 @@ table! {
         updated_at -> Nullable<Timestamp>,
     }
 }
-
 table! {
     schools {
         id -> Uuid,
@@ -20,11 +19,11 @@ table! {
         created_at -> Timestamp,
         updated_at -> Nullable<Timestamp>,
     }
-}
 
+}
 table! {
     students {
-        id -> Int4,
+        id -> Uuid,
         first_name -> VarChar,
         last_name -> VarChar,
         program -> VarChar, // @TODO: Change to enum to avoid discrepancies
@@ -38,9 +37,9 @@ table! {
 
 table! {
     classes {
-        id -> Int4,
+        id -> Uuid,
         name -> VarChar,
-        student_id -> Int4,
+        student_id -> Uuid,
         created_at -> Timestamp,
         updated_at -> Nullable<Timestamp>,
     }
@@ -48,9 +47,9 @@ table! {
 
 table! {
     schedules {
-        id -> Int4,
-        student_id -> Int4,
-        class_id -> Int4,
+        id -> Uuid,
+        student_id -> Uuid,
+        class_id -> Uuid,
         day_of_week -> Int2,
         start_time -> Timestamp,
         end_time -> Timestamp,

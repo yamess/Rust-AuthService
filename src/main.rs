@@ -1,4 +1,4 @@
-use actix_web::{App, HttpResponse, HttpServer, middleware, web};
+use actix_web::{middleware, web, App, HttpResponse, HttpServer};
 
 use configs::common::ApplicationConfig;
 use databases::async_postgres::AsyncPostgresPool;
@@ -8,6 +8,7 @@ use routes::user_routes::UserRoutes;
 use crate::routes::auth_routes::AuthRoutes;
 use crate::routes::password_routes::PasswordRoutes;
 use crate::routes::school_routes::SchoolRoutes;
+use crate::routes::student_routes::StudentRoutes;
 
 mod configs;
 mod databases;
@@ -60,8 +61,7 @@ async fn main() -> std::io::Result<()> {
                     .route("/{id}", web::get().to(UserRoutes::get))
                     .route("/{id}", web::put().to(UserRoutes::update))
                     .route("/{id}", web::delete().to(UserRoutes::delete))
-                    .route("/{id}/password", web::put().to(PasswordRoutes::update),
-                    )
+                    .route("/{id}/password", web::put().to(PasswordRoutes::update)),
             )
             .service(
                 web::scope("/schools")
@@ -72,18 +72,18 @@ async fn main() -> std::io::Result<()> {
             )
             .service(
                 web::scope("/students")
-                    .route("", web::post().to(UserRoutes::create))
-                    .route("/{id}", web::get().to(UserRoutes::get))
-                    .route("/{id}", web::patch().to(UserRoutes::update))
-                    .route("/{id}", web::delete().to(UserRoutes::delete)),
+                    .route("", web::post().to(StudentRoutes::create))
+                    .route("/{id}", web::get().to(StudentRoutes::get))
+                    .route("/{id}", web::patch().to(StudentRoutes::update))
+                    .route("/{id}", web::delete().to(StudentRoutes::delete)),
             )
     })
-        .bind(format!(
-            "{}:{}",
-            &configs.server.app_host,
-            &configs.server.app_port //&configs.server.app_host, &configs.server.app_port
-        ))?
-        .workers(num_cpus::get() * 2)
-        .run()
-        .await
+    .bind(format!(
+        "{}:{}",
+        &configs.server.app_host,
+        &configs.server.app_port //&configs.server.app_host, &configs.server.app_port
+    ))?
+    .workers(num_cpus::get() * 2)
+    .run()
+    .await
 }

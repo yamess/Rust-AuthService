@@ -35,17 +35,13 @@ impl PasswordService {
             ));
         }
         let old_data = match id {
-            Identifier::Id(_id) => users::table.find(_id).get_result::<UserModel>(conn).await?,
-            Identifier::Email(_email) => {
+            Identifier::Id(id) => users::table.find(id).get_result::<UserModel>(conn).await?,
+            Identifier::Email(email) => {
                 users::table
-                    .filter(users::email.eq(_email))
+                    .filter(users::email.eq(email))
                     .get_result::<UserModel>(conn)
                     .await?
             }
-            _ => {
-                log::error!("Invalid identifier");
-                Err(Error::NotFound)
-            }?
         };
         if !PasswordService::verify(&new_data.old_password, &old_data.password) {
             log::error!("Wrong credentials for user {}", old_data.email);

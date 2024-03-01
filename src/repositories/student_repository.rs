@@ -2,8 +2,6 @@ use diesel::ExpressionMethods;
 use diesel::QueryDsl;
 use diesel::result::Error;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
-use serde::{Deserialize, Serialize};
-use uuid::Uuid;
 
 use crate::helper::enums::Identifier;
 use crate::helper::utils::type_of;
@@ -28,10 +26,8 @@ impl IRepository<'_, StudentCreate, StudentUpdate, StudentResponse> for StudentR
             data.department,
             data.user_id,
             data.school_id,
-            chrono::Utc::now().naive_utc(),
-            None,
         );
-        let created_student = diesel::insert_into(crate::schema::students::table)
+        let created_student = diesel::insert_into(students::table)
             .values(&new_student)
             .get_result::<Self::Model>(conn)
             .await;
@@ -59,22 +55,28 @@ impl IRepository<'_, StudentCreate, StudentUpdate, StudentResponse> for StudentR
         id: &Identifier,
     ) -> Result<Option<StudentResponse>, Error> {
         let student = match id {
-            Identifier::Int(id) => crate::schema::students::table
+            Identifier::Id(id) => students::table
                 .find(id)
                 .get_result::<Self::Model>(conn)
                 .await
                 .map(Some),
-            _ => Err(Error::NotFound),
+            _ => {
+                log::error!(
+                    "Wrong student identifier. Expecting uuid type. Got {:?}",
+                    type_of(id)
+                );
+                Err(Error::NotFound)
+            }
         };
 
         match student {
-            Ok(None) => {
-                log::error!("Student not found");
-                Ok(None)
-            }
             Err(e) => {
                 log::error!("Failed to get student: {}", e);
                 Err(e)
+            }
+            Ok(None) => {
+                log::error!("Student not found");
+                Ok(None)
             }
             Ok(Some(student)) => Ok(Some(StudentResponse {
                 id: student.id,
@@ -96,7 +98,7 @@ impl IRepository<'_, StudentCreate, StudentUpdate, StudentResponse> for StudentR
         new_data: StudentUpdate,
     ) -> Result<StudentResponse, Error> {
         let old_data = match id {
-            Identifier::Int(id) => {
+            Identifier::Id(id) => {
                 students::table
                     .find(id)
                     .get_result::<Self::Model>(conn)
@@ -104,10 +106,10 @@ impl IRepository<'_, StudentCreate, StudentUpdate, StudentResponse> for StudentR
             }
             _ => {
                 log::error!(
-                    "Wrong student identifier. Expecting int type. Got {:?}",
+                    "Wrong student identifier. Expecting uid type. Got {:?}",
                     type_of(id)
                 );
-                return Err(Error::NotFound);
+                Err(Error::NotFound)?
             }
         };
 
@@ -121,7 +123,6 @@ impl IRepository<'_, StudentCreate, StudentUpdate, StudentResponse> for StudentR
             ))
             .get_result::<Self::Model>(conn)
             .await;
-
 
         match updated_student {
             Err(e) => {
@@ -144,17 +145,13 @@ impl IRepository<'_, StudentCreate, StudentUpdate, StudentResponse> for StudentR
 
     async fn delete(conn: &mut AsyncPgConnection, id: &Identifier) -> Result<usize, Error> {
         let number_deleted = match id {
-            Identifier::Int(id) => {
-                diesel::delete(crate::schema::students::table.find(id))
-                    .execute(conn)
-                    .await
-            }
+            Identifier::Id(id) => diesel::delete(students::table.find(id)).execute(conn).await,
             _ => {
                 log::error!(
-                    "Wrong student identifier. Expecting int type. Got {:?}",
+                    "Wrong student identifier. Expecting uuid type. Got {:?}",
                     type_of(id)
                 );
-                Err(Error::NotFound)
+                Err(Error::NotFound)?
             }
         };
         match number_deleted {

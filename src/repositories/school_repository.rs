@@ -1,10 +1,10 @@
-use diesel::result::Error;
 use diesel::ExpressionMethods;
 use diesel::QueryDsl;
+use diesel::result::Error;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
 
 use crate::helper::enums::Identifier;
-
+use crate::helper::utils::type_of;
 use crate::interfaces::repository_interface::IRepository;
 use crate::models::school_model::SchoolModel;
 use crate::schema::schools;
@@ -19,14 +19,8 @@ impl IRepository<'_, SchoolCreate, SchoolUpdate, SchoolResponse> for SchoolRepos
         conn: &mut AsyncPgConnection,
         data: SchoolCreate,
     ) -> Result<SchoolResponse, Error> {
-        let new_school = Self::Model {
-            id: uuid::Uuid::new_v4(),
-            name: data.name,
-            website: data.website,
-            created_at: chrono::Utc::now().naive_utc(),
-            updated_at: None,
-        };
-        let created_school = diesel::insert_into(crate::schema::schools::table)
+        let new_school = Self::Model::new(data.name, data.website);
+        let created_school = diesel::insert_into(schools::table)
             .values(&new_school)
             .get_result::<Self::Model>(conn)
             .await;
@@ -55,13 +49,23 @@ impl IRepository<'_, SchoolCreate, SchoolUpdate, SchoolResponse> for SchoolRepos
                 .get_result::<Self::Model>(conn)
                 .await
                 .map(Some),
-            _ => Err(Error::NotFound),
+            _ => {
+                log::error!(
+                    "Wrong student identifier. Expecting int type. Got {:?}",
+                    type_of(id)
+                );
+                Err(Error::NotFound)
+            }
         };
 
         match school {
+            Err(e) => {
+                log::error!("Failed to get school: {}", e);
+                Err(e)
+            }
             Ok(None) => {
                 log::error!("School id {:?} not found", id);
-                Err(Error::NotFound)
+                Ok(None)
             }
             Ok(Some(school)) => Ok(Some(SchoolResponse {
                 id: school.id,
@@ -69,11 +73,7 @@ impl IRepository<'_, SchoolCreate, SchoolUpdate, SchoolResponse> for SchoolRepos
                 website: school.website,
                 created_at: school.created_at,
                 updated_at: school.updated_at,
-            })),
-            Err(e) => {
-                log::error!("Failed to get school: {}", e);
-                Err(e)
-            }
+            }))
         }
     }
 
@@ -105,6 +105,10 @@ impl IRepository<'_, SchoolCreate, SchoolUpdate, SchoolResponse> for SchoolRepos
             .await;
 
         match updated_school {
+            Err(e) => {
+                log::error!("Failed to update school: {}", e);
+                Err(e)
+            }
             Ok(sch) => Ok(SchoolResponse {
                 id: sch.id,
                 name: sch.name,
@@ -112,10 +116,6 @@ impl IRepository<'_, SchoolCreate, SchoolUpdate, SchoolResponse> for SchoolRepos
                 created_at: sch.created_at,
                 updated_at: sch.updated_at,
             }),
-            Err(e) => {
-                log::error!("Failed to update school: {}", e);
-                Err(e)
-            }
         }
     }
 
