@@ -5,15 +5,15 @@ use uuid::Uuid;
 use crate::schema::users;
 
 #[derive(
-Insertable,
-Queryable,
-Identifiable,
-Selectable,
-Deserialize,
-Serialize,
-AsChangeset,
-Debug,
-PartialEq,
+    Insertable,
+    Queryable,
+    Identifiable,
+    Selectable,
+    Deserialize,
+    Serialize,
+    AsChangeset,
+    Debug,
+    PartialEq,
 )]
 #[diesel(table_name = users)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
@@ -28,12 +28,7 @@ pub struct UserModel {
 }
 
 impl UserModel {
-    pub fn new(
-        email: String,
-        password: String,
-        is_active: bool,
-        is_admin: bool,
-    ) -> Self {
+    pub fn new(email: String, password: String, is_active: bool, is_admin: bool) -> Self {
         Self {
             id: Uuid::new_v4(),
             email,

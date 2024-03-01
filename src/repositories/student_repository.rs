@@ -1,6 +1,6 @@
+use diesel::result::Error;
 use diesel::ExpressionMethods;
 use diesel::QueryDsl;
-use diesel::result::Error;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
 
 use crate::helper::enums::Identifier;

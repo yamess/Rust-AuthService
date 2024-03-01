@@ -1,6 +1,6 @@
+use diesel::result::Error;
 use diesel::ExpressionMethods;
 use diesel::QueryDsl;
-use diesel::result::Error;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
 
 use crate::helper::enums::Identifier;
@@ -73,7 +73,7 @@ impl IRepository<'_, SchoolCreate, SchoolUpdate, SchoolResponse> for SchoolRepos
                 website: school.website,
                 created_at: school.created_at,
                 updated_at: school.updated_at,
-            }))
+            })),
         }
     }
 

@@ -1,11 +1,10 @@
 use std::fmt::Debug;
 
+use diesel::result::Error;
 use diesel::ExpressionMethods;
 use diesel::QueryDsl;
-use diesel::result::Error;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
 use serde::{Deserialize, Serialize};
-use uuid::Uuid;
 
 use crate::helper::enums::Identifier;
 use crate::interfaces::repository_interface::IRepository;
@@ -31,12 +30,7 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
         }
         let hashed_password = PasswordService::hash(&data.password);
 
-        let new_user = Self::Model::new(
-            data.email,
-            hashed_password,
-            data.is_active,
-            data.is_admin,
-        );
+        let new_user = Self::Model::new(data.email, hashed_password, data.is_active, data.is_admin);
         // create user
         let created_user = diesel::insert_into(crate::schema::users::table)
             .values(&new_user)
@@ -72,7 +66,7 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
                 .filter(users::email.eq(_email))
                 .get_result::<Self::Model>(conn)
                 .await
-                .map(Some)
+                .map(Some),
         };
 
         match user {

@@ -5,15 +5,15 @@ use uuid::Uuid;
 use crate::schema::schools;
 
 #[derive(
-Insertable,
-Queryable,
-Identifiable,
-Selectable,
-Deserialize,
-Serialize,
-AsChangeset,
-Debug,
-PartialEq,
+    Insertable,
+    Queryable,
+    Identifiable,
+    Selectable,
+    Deserialize,
+    Serialize,
+    AsChangeset,
+    Debug,
+    PartialEq,
 )]
 #[diesel(table_name = schools)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
@@ -26,10 +26,7 @@ pub struct SchoolModel {
 }
 
 impl SchoolModel {
-    pub fn new(
-        name: String,
-        website: String,
-    ) -> Self {
+    pub fn new(name: String, website: String) -> Self {
         Self {
             id: Uuid::new_v4(),
             name,

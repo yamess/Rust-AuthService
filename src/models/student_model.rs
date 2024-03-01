@@ -5,15 +5,15 @@ use uuid::Uuid;
 use crate::schema::students;
 
 #[derive(
-Insertable,
-Queryable,
-Identifiable,
-Selectable,
-Deserialize,
-Serialize,
-AsChangeset,
-Debug,
-PartialEq,
+    Insertable,
+    Queryable,
+    Identifiable,
+    Selectable,
+    Deserialize,
+    Serialize,
+    AsChangeset,
+    Debug,
+    PartialEq,
 )]
 #[diesel(table_name = students)]
 #[diesel(check_for_backend(diesel::pg::Pg))]

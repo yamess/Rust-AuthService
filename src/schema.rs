@@ -59,8 +59,11 @@ diesel::table! {
     }
 }
 
+diesel::joinable!(classes -> students (student_id));
 diesel::joinable!(schedules -> classes (class_id));
 diesel::joinable!(schedules -> students (student_id));
+diesel::joinable!(students -> schools (school_id));
+diesel::joinable!(students -> users (user_id));
 
 diesel::allow_tables_to_appear_in_same_query!(
     classes,
