@@ -1,14 +1,13 @@
 use std::fmt::Debug;
 
-use diesel::result::Error;
 use diesel::ExpressionMethods;
 use diesel::QueryDsl;
+use diesel::result::Error;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
 use crate::helper::enums::Identifier;
-
 use crate::interfaces::repository_interface::IRepository;
 use crate::models::user_model::UserModel;
 use crate::schema::users;
@@ -25,7 +24,10 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
         if !PasswordService::validate(&data.password) {
             log::error!("Password length must be at least 8 characters");
             // @TODO: Replace with custom error
-            return Err(Error::NotFound);
+            return Err(Error::DatabaseError(
+                diesel::result::DatabaseErrorKind::CheckViolation,
+                Box::new("Password length must be at least 8 characters".to_string()),
+            ));
         }
         let hashed_password = PasswordService::hash(&data.password);
 
@@ -74,6 +76,10 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
                 .get_result::<Self::Model>(conn)
                 .await
                 .map(Some),
+            _ => {
+                log::error!("Invalid identifier");
+                Err(Error::NotFound)
+            }
         };
 
         match user {
@@ -114,6 +120,10 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
                     .get_result::<Self::Model>(conn)
                     .await?
             }
+            _ => {
+                log::error!("Invalid identifier");
+                return Err(Error::NotFound);
+            }
         };
 
         let user = diesel::update(&old_data)
@@ -151,6 +161,10 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
                 diesel::delete(users::table.filter(users::email.eq(_email)))
                     .execute(conn)
                     .await
+            }
+            _ => {
+                log::error!("Invalid identifier");
+                return Err(Error::NotFound);
             }
         };
 

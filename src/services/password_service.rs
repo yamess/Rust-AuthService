@@ -1,6 +1,6 @@
-use diesel::result::Error;
 use diesel::ExpressionMethods;
 use diesel::QueryDsl;
+use diesel::result::Error;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
 
 use crate::helper::enums::Identifier;
@@ -29,7 +29,10 @@ impl PasswordService {
         if !Self::validate(&new_data.new_password) {
             log::error!("Password length must be at least 8 characters");
             // @TODO: Replace with custom error
-            panic!("Password length must be at least 8 characters")
+            return Err(Error::DatabaseError(
+                diesel::result::DatabaseErrorKind::CheckViolation,
+                Box::new("Password length must be at least 8 characters".to_string()),
+            ));
         }
         let old_data = match id {
             Identifier::Id(_id) => users::table.find(_id).get_result::<UserModel>(conn).await?,
@@ -39,11 +42,18 @@ impl PasswordService {
                     .get_result::<UserModel>(conn)
                     .await?
             }
+            _ => {
+                log::error!("Invalid identifier");
+                Err(Error::NotFound)
+            }?
         };
         if !PasswordService::verify(&new_data.old_password, &old_data.password) {
             log::error!("Wrong credentials for user {}", old_data.email);
             // @TODO: Replace with custom error
-            panic!("Wrong credentials for user {}", old_data.email)
+            return Err(Error::DatabaseError(
+                diesel::result::DatabaseErrorKind::CheckViolation,
+                Box::new("Wrong credentials".to_string()),
+            ));
         }
 
         let hashed_password = PasswordService::hash(&new_data.new_password);

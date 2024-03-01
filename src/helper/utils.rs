@@ -16,3 +16,8 @@ pub async fn get_connection(
         })
         .unwrap()
 }
+
+// type of variable
+pub fn type_of<T>(_: T) -> &'static str {
+    std::any::type_name::<T>()
+}

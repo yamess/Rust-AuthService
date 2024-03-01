@@ -1,4 +1,4 @@
-use actix_web::{middleware, web, App, HttpResponse, HttpServer};
+use actix_web::{App, HttpResponse, HttpServer, middleware, web};
 
 use configs::common::ApplicationConfig;
 use databases::async_postgres::AsyncPostgresPool;
@@ -54,25 +54,36 @@ async fn main() -> std::io::Result<()> {
                 web::to(|| async { HttpResponse::Ok().json("OK") }),
             )
             .route("/auth/login", web::post().to(AuthRoutes::login))
-            .route("/users", web::post().to(UserRoutes::create))
-            .route("/users/{id}", web::get().to(UserRoutes::get))
-            .route("/users/{id}", web::patch().to(UserRoutes::update))
-            .route("/users/{id}", web::delete().to(UserRoutes::delete))
-            .route(
-                "/users/{id}/password",
-                web::patch().to(PasswordRoutes::update),
+            .service(
+                web::scope("/users")
+                    .route("", web::post().to(UserRoutes::create))
+                    .route("/{id}", web::get().to(UserRoutes::get))
+                    .route("/{id}", web::put().to(UserRoutes::update))
+                    .route("/{id}", web::delete().to(UserRoutes::delete))
+                    .route("/{id}/password", web::put().to(PasswordRoutes::update),
+                    )
             )
-            .route("/schools", web::post().to(SchoolRoutes::create))
-            .route("/schools/{id}", web::get().to(SchoolRoutes::get))
-            .route("/schools/{id}", web::patch().to(SchoolRoutes::update))
-            .route("/schools/{id}", web::delete().to(SchoolRoutes::delete))
+            .service(
+                web::scope("/schools")
+                    .route("", web::post().to(SchoolRoutes::create))
+                    .route("/{id}", web::get().to(SchoolRoutes::get))
+                    .route("/{id}", web::put().to(SchoolRoutes::update))
+                    .route("/{id}", web::delete().to(SchoolRoutes::delete)),
+            )
+            .service(
+                web::scope("/students")
+                    .route("", web::post().to(UserRoutes::create))
+                    .route("/{id}", web::get().to(UserRoutes::get))
+                    .route("/{id}", web::patch().to(UserRoutes::update))
+                    .route("/{id}", web::delete().to(UserRoutes::delete)),
+            )
     })
-    .bind(format!(
-        "{}:{}",
-        &configs.server.app_host,
-        &configs.server.app_port //&configs.server.app_host, &configs.server.app_port
-    ))?
-    .workers(num_cpus::get() * 2)
-    .run()
-    .await
+        .bind(format!(
+            "{}:{}",
+            &configs.server.app_host,
+            &configs.server.app_port //&configs.server.app_host, &configs.server.app_port
+        ))?
+        .workers(num_cpus::get() * 2)
+        .run()
+        .await
 }
