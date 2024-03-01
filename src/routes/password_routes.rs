@@ -1,4 +1,4 @@
-use actix_web::{HttpResponse, Responder, web};
+use actix_web::{web, HttpResponse, Responder};
 
 use crate::helper::enums::Identifier;
 use crate::helper::type_alias::DbPool;
@@ -25,7 +25,7 @@ impl PasswordRoutes {
             &Identifier::Id(_id),
             password.into_inner(),
         )
-            .await;
+        .await;
 
         match updated_password {
             Ok(_) => {

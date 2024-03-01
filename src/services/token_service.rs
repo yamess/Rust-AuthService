@@ -1,4 +1,4 @@
-use jsonwebtoken::{Algorithm, decode, DecodingKey, encode, EncodingKey, Header, Validation};
+use jsonwebtoken::{decode, encode, Algorithm, DecodingKey, EncodingKey, Header, Validation};
 
 use crate::configs::common::AuthConfig;
 use crate::schemas::auth_schemas::TokenClaims;
@@ -21,10 +21,10 @@ impl TokenService {
             &claim,
             &EncodingKey::from_secret(secret.as_ref()),
         )
-            .map_err(|e| {
-                log::error!("Failed to generate token: {}", e);
-                e
-            });
+        .map_err(|e| {
+            log::error!("Failed to generate token: {}", e);
+            e
+        });
         token
     }
 

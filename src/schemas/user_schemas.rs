@@ -1,5 +1,3 @@
-use std::fmt::Display;
-
 use chrono::NaiveDateTime;
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;

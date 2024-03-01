@@ -1,18 +1,11 @@
-use std::collections::HashSet;
-
-use bcrypt;
 use chrono::Duration;
+use diesel::result::Error;
 use diesel::ExpressionMethods;
 use diesel::QueryDsl;
-use diesel::result::Error;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
-use jsonwebtoken::{Algorithm, decode, DecodingKey, encode, EncodingKey, Header, Validation};
-use serde::Deserialize;
 
 use crate::configs::common::AuthConfig;
-use crate::helper::enums::{Identifier, UserRole};
-use crate::interfaces::repository_interface::IRepository;
-use crate::models::school_model::SchoolModel;
+
 use crate::models::user_model::UserModel;
 use crate::schema::users;
 use crate::schemas::auth_schemas::{LoginRequest, LoginResponse, TokenClaims};
@@ -55,7 +48,7 @@ impl AuthService {
                         active: _user.is_active,
                     },
                 )
-                    .await;
+                .await;
 
                 match _token {
                     Err(_e) => {

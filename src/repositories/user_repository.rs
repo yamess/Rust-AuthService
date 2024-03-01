@@ -1,6 +1,5 @@
 use std::fmt::Debug;
 
-use chrono::NaiveDateTime;
 use diesel::result::Error;
 use diesel::ExpressionMethods;
 use diesel::QueryDsl;
@@ -9,11 +8,11 @@ use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
 use crate::helper::enums::Identifier;
-use crate::helper::exceptions::RepositoryError;
+
 use crate::interfaces::repository_interface::IRepository;
 use crate::models::user_model::UserModel;
 use crate::schema::users;
-use crate::schemas::user_schemas::{PasswordUpdate, UserCreate, UserResponse, UserUpdate};
+use crate::schemas::user_schemas::{UserCreate, UserResponse, UserUpdate};
 use crate::services::password_service::PasswordService;
 
 #[derive(Debug, Serialize, Deserialize)]

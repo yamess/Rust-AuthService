@@ -1,7 +1,5 @@
 use std::future::{ready, Ready};
-use std::time::Duration;
 
-use actix_web::http::header;
 use actix_web::http::header::{HeaderName, HeaderValue};
 use actix_web::{
     dev::{forward_ready, Service, ServiceRequest, ServiceResponse, Transform},

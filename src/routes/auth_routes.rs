@@ -1,14 +1,10 @@
-use std::sync::Arc;
-
-use actix_web::{Responder, web};
-use diesel::result::Error;
+use actix_web::{web, Responder};
 
 use crate::configs::common::ApplicationConfig;
 use crate::helper::type_alias::DbPool;
 use crate::helper::utils::get_connection;
 use crate::schemas::auth_schemas::LoginRequest;
 use crate::services::auth_service::AuthService;
-use crate::services::token_service::TokenService;
 
 pub struct AuthRoutes;
 

@@ -1,7 +1,4 @@
-use actix_web::{HttpResponse, Responder, web};
-use diesel_async::AsyncPgConnection;
-use diesel_async::pooled_connection::AsyncDieselConnectionManager;
-use uuid::{uuid, Uuid};
+use actix_web::{web, HttpResponse, Responder};
 
 use crate::helper::enums::Identifier;
 use crate::helper::type_alias::DbPool;
@@ -10,7 +7,6 @@ use crate::interfaces::repository_interface::IRepository;
 use crate::repositories::user_repository::UserRepository;
 use crate::schemas::user_schemas::{UserCreate, UserUpdate};
 use crate::services::auth_extractor::AuthExtractorService;
-use crate::tables::users::dsl::users;
 
 pub struct UserRoutes;
 

@@ -1,4 +1,4 @@
-use actix_web::{Responder, web};
+use actix_web::{web, Responder};
 
 use crate::helper::enums::Identifier;
 use crate::helper::type_alias::DbPool;

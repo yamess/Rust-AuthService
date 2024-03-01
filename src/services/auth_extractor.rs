@@ -1,14 +1,13 @@
-use std::future::{Future, ready, Ready};
+use std::future::{ready, Future};
 use std::pin::Pin;
 
-use actix_web::{FromRequest, http, HttpRequest, web};
 use actix_web::http::header::HeaderValue;
+use actix_web::{http, web, FromRequest, HttpRequest};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
 use crate::configs::common::ApplicationConfig;
-use crate::schemas::auth_schemas::TokenClaims;
-use crate::services::auth_service::AuthService;
+
 use crate::services::token_service::TokenService;
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -56,7 +55,7 @@ impl FromRequest for AuthExtractorService {
     /**
      * The future response value.
      */
-    type Future = Pin<Box<dyn Future<Output=Result<Self, Self::Error>>>>;
+    type Future = Pin<Box<dyn Future<Output = Result<Self, Self::Error>>>>;
 
     /**
      * Extracts the token from the request header and validates it

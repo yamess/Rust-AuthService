@@ -17,3 +17,5 @@ format:
 secret:
 	openssl rand -base64 32
 
+fix:
+	cargo fix && cargo fmt

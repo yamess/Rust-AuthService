@@ -1,14 +1,10 @@
-use std::sync::Arc;
-
 use actix_web::{middleware, web, App, HttpResponse, HttpServer};
-use utoipa_swagger_ui::SwaggerUi;
 
 use configs::common::ApplicationConfig;
 use databases::async_postgres::AsyncPostgresPool;
 use helper::logger::initialize_logger;
 use routes::user_routes::UserRoutes;
 
-use crate::middlewares::timer_middleware::{TimerMiddleware, TimerMiddlewareTransform};
 use crate::routes::auth_routes::AuthRoutes;
 use crate::routes::password_routes::PasswordRoutes;
 use crate::routes::school_routes::SchoolRoutes;

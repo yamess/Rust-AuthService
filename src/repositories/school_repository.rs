@@ -1,13 +1,10 @@
-use chrono::NaiveDateTime;
 use diesel::result::Error;
 use diesel::ExpressionMethods;
 use diesel::QueryDsl;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
-use serde::{Deserialize, Serialize};
-use uuid::Uuid;
 
 use crate::helper::enums::Identifier;
-use crate::helper::enums::Identifier::Id;
+
 use crate::interfaces::repository_interface::IRepository;
 use crate::models::school_model::SchoolModel;
 use crate::schema::schools;
