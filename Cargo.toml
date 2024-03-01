@@ -39,7 +39,7 @@ futures-util = "0.3.30"
 rand = "0.8.5"
 dotenv = "0.15.0"
 jsonwebtoken = "9.2.0"
-utoipa = { version = "4.2.0", features = ["actix_extras"] }
 utoipa-swagger-ui = { version = "6.0.0", features = ["actix-web", "debug-embed"] }
+num_cpus = "1.16.0"
 
 

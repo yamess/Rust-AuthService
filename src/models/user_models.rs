@@ -19,6 +19,8 @@ pub struct UserModel {
     pub id: uuid::Uuid,
     pub email: String,
     pub password: String,
+    pub is_active: bool,
+    pub is_admin: bool,
     pub created_at: chrono::NaiveDateTime,
     pub updated_at: Option<chrono::NaiveDateTime>,
 }

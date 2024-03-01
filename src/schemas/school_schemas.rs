@@ -1,7 +1,6 @@
 use serde::{Deserialize, Serialize};
-use utoipa::ToSchema;
 
-#[derive(Debug, Serialize, Deserialize, ToSchema)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct SchoolResponse {
     pub id: uuid::Uuid,
     pub name: String,
@@ -10,13 +9,13 @@ pub struct SchoolResponse {
     pub updated_at: Option<chrono::NaiveDateTime>,
 }
 
-#[derive(Debug, Serialize, Deserialize, ToSchema)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct SchoolCreate {
     pub name: String,
     pub website: String,
 }
 
-#[derive(Debug, Serialize, Deserialize, ToSchema)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct SchoolUpdate {
     pub name: String,
     pub website: String,

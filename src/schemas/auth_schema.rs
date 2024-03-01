@@ -1,24 +1,24 @@
 use serde::{Deserialize, Serialize};
-use utoipa::ToSchema;
+use uuid::Uuid;
 
-#[derive(Debug, Serialize, Deserialize, ToSchema)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct LoginRequest {
     pub email: String,
     pub password: String,
 }
 
-#[derive(Debug, Serialize, Deserialize, ToSchema)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct LoginResponse {
     pub token: String,
 }
 
-#[derive(Debug, Serialize, Deserialize, ToSchema)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct TokenClaims {
-    pub aud: Option<String>,
     pub exp: i64,
     pub iat: i64,
-    pub iss: String,
-    pub nbf: i64,
-    pub sub: String,
+    pub sub: Uuid,
     pub email: String,
+    pub tenant_id: Option<Uuid>,
+    pub admin: bool,
+    pub active: bool,
 }

@@ -14,12 +14,12 @@ diesel::table! {
     schedules (id) {
         id -> Int4,
         student_id -> Int4,
+        class_id -> Int4,
+        day_of_week -> Int2,
         start_time -> Timestamp,
         end_time -> Timestamp,
         created_at -> Timestamp,
         updated_at -> Nullable<Timestamp>,
-        class_id -> Int4,
-        day_of_week -> Int2,
     }
 }
 
@@ -27,9 +27,9 @@ diesel::table! {
     schools (id) {
         id -> Uuid,
         name -> Varchar,
+        website -> Varchar,
         created_at -> Timestamp,
         updated_at -> Nullable<Timestamp>,
-        website -> Varchar,
     }
 }
 
@@ -39,11 +39,11 @@ diesel::table! {
         first_name -> Varchar,
         last_name -> Varchar,
         program -> Varchar,
+        department -> Nullable<Varchar>,
         user_id -> Uuid,
         school_id -> Uuid,
         created_at -> Timestamp,
         updated_at -> Nullable<Timestamp>,
-        department -> Nullable<Varchar>,
     }
 }
 
@@ -52,12 +52,15 @@ diesel::table! {
         id -> Uuid,
         email -> Varchar,
         password -> Varchar,
+        is_active -> Bool,
+        is_admin -> Bool,
         created_at -> Timestamp,
         updated_at -> Nullable<Timestamp>,
     }
 }
 
 diesel::joinable!(classes -> students (student_id));
+diesel::joinable!(schedules -> classes (class_id));
 diesel::joinable!(schedules -> students (student_id));
 diesel::joinable!(students -> schools (school_id));
 diesel::joinable!(students -> users (user_id));

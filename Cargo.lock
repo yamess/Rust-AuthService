@@ -584,11 +584,11 @@ dependencies = [
  "jsonwebtoken",
  "log",
  "log4rs",
+ "num_cpus",
  "r2d2",
  "rand",
  "serde",
  "tokio",
- "utoipa",
  "utoipa-swagger-ui",
  "uuid",
 ]
@@ -2069,7 +2069,6 @@ dependencies = [
  "proc-macro-error",
  "proc-macro2",
  "quote",
- "regex",
  "syn 2.0.50",
 ]
 

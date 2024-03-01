@@ -1,7 +1,6 @@
 use std::sync::Arc;
 
-use actix_web::{App, HttpResponse, HttpServer, middleware, web};
-use utoipa::OpenApi;
+use actix_web::{middleware, web, App, HttpResponse, HttpServer};
 use utoipa_swagger_ui::SwaggerUi;
 
 use configs::common::ApplicationConfig;
@@ -11,6 +10,7 @@ use routes::user_routes::UserRoutes;
 
 use crate::middlewares::timer_middleware::{TimerMiddleware, TimerMiddlewareTransform};
 use crate::routes::auth_routes::AuthRoutes;
+use crate::routes::password_routes::PasswordRoutes;
 use crate::routes::school_routes::SchoolRoutes;
 
 mod configs;
@@ -57,25 +57,26 @@ async fn main() -> std::io::Result<()> {
                 "/health",
                 web::to(|| async { HttpResponse::Ok().json("OK") }),
             )
+            .route("/auth/login", web::post().to(AuthRoutes::login))
             .route("/users", web::post().to(UserRoutes::create))
             .route("/users/{id}", web::get().to(UserRoutes::get))
             .route("/users/{id}", web::patch().to(UserRoutes::update))
             .route("/users/{id}", web::delete().to(UserRoutes::delete))
+            .route(
+                "/users/{id}/password",
+                web::patch().to(PasswordRoutes::update),
+            )
             .route("/schools", web::post().to(SchoolRoutes::create))
             .route("/schools/{id}", web::get().to(SchoolRoutes::get))
             .route("/schools/{id}", web::patch().to(SchoolRoutes::update))
             .route("/schools/{id}", web::delete().to(SchoolRoutes::delete))
-            .route("/auth/login", web::post().to(AuthRoutes::login))
-            .route(
-                "/auth/authenticate",
-                web::get().to(AuthRoutes::authenticate),
-            )
     })
-        .bind(format!(
-            "{}:{}",
-            Arc::clone(&configs).server.app_host,
-            Arc::clone(&configs).server.app_port //&configs.server.app_host, &configs.server.app_port
-        ))?
-        .run()
-        .await
+    .bind(format!(
+        "{}:{}",
+        &configs.server.app_host,
+        &configs.server.app_port //&configs.server.app_host, &configs.server.app_port
+    ))?
+    .workers(num_cpus::get() * 2)
+    .run()
+    .await
 }

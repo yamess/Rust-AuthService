@@ -1,6 +1,5 @@
 use std::fmt::Debug;
 
-use bcrypt::verify;
 use chrono::NaiveDateTime;
 use diesel::result::Error;
 use diesel::ExpressionMethods;
@@ -11,11 +10,11 @@ use uuid::Uuid;
 
 use crate::helper::enums::Identifier;
 use crate::helper::exceptions::RepositoryError;
-use crate::helper::utils::{hash_password, is_password_valid, verify_password};
 use crate::interfaces::repository_interface::IRepository;
 use crate::models::user_models::UserModel;
 use crate::schema::users;
-use crate::schemas::user_schemas::{UserCreate, UserResponse, UserUpdate};
+use crate::schemas::user_schemas::{PasswordUpdate, UserCreate, UserResponse, UserUpdate};
+use crate::services::password_service::PasswordService;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct UserRepository;
@@ -24,16 +23,19 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
     type Model = UserModel;
 
     async fn create(conn: &mut AsyncPgConnection, data: UserCreate) -> Result<UserResponse, Error> {
-        if !is_password_valid(&data.password) {
+        if !PasswordService::validate(&data.password) {
             log::error!("Password length must be at least 8 characters");
-            panic!("Password length must be at least 8 characters")
+            // @TODO: Replace with custom error
+            return Err(Error::NotFound);
         }
-        let hashed_password = hash_password(&data.password);
+        let hashed_password = PasswordService::hash(&data.password);
 
         let new_user = Self::Model {
             id: Uuid::new_v4(),
             email: data.email,
             password: hashed_password,
+            is_active: data.is_active,
+            is_admin: data.is_admin,
             created_at: chrono::Utc::now().naive_utc(),
             updated_at: None,
         };
@@ -50,6 +52,8 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
             Ok(created_user) => Ok(UserResponse {
                 id: created_user.id,
                 email: created_user.email,
+                is_active: created_user.is_active,
+                is_admin: created_user.is_admin,
                 created_at: created_user.created_at,
                 updated_at: created_user.updated_at,
             }),
@@ -81,6 +85,8 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
             Ok(Some(user)) => Ok(Some(UserResponse {
                 id: user.id,
                 email: user.email,
+                is_active: user.is_active,
+                is_admin: user.is_admin,
                 created_at: user.created_at,
                 updated_at: user.updated_at,
             })),
@@ -96,11 +102,6 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
         id: &Identifier,
         new_data: UserUpdate,
     ) -> Result<UserResponse, Error> {
-        // Verify password validity
-        if !is_password_valid(&new_data.new_password) {
-            log::error!("Password length must be at least 8 characters");
-            panic!("Password length must be at least 8 characters")
-        }
         let old_data = match id {
             Identifier::Id(_id) => {
                 users::table
@@ -115,15 +116,11 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
                     .await?
             }
         };
-        if !verify_password(&new_data.old_password, &old_data.password) {
-            log::error!("Wrong credentials for user {}", old_data.email);
-            panic!("Wrong credentials for user {}", old_data.id)
-        }
 
-        let hashed_password = hash_password(&new_data.new_password);
         let user = diesel::update(&old_data)
             .set((
-                users::password.eq(hashed_password),
+                users::is_active.eq(new_data.is_active),
+                users::is_admin.eq(new_data.is_admin),
                 users::updated_at.eq(chrono::Utc::now().naive_utc()),
             ))
             .get_result::<Self::Model>(conn)
@@ -131,10 +128,12 @@ impl IRepository<'_, UserCreate, UserUpdate, UserResponse> for UserRepository {
 
         match user {
             Ok(user) => {
-                log::info!("User {:?} updated", user.id);
+                log::info!("User {:?} password updated successfully", user.id);
                 Ok(UserResponse {
                     id: user.id,
                     email: user.email,
+                    is_active: user.is_active,
+                    is_admin: user.is_admin,
                     created_at: user.created_at,
                     updated_at: user.updated_at,
                 })

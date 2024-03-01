@@ -5,6 +5,8 @@ table! {
         id -> Uuid,
         email -> Varchar,
         password -> Varchar,
+        is_active -> Bool,
+        is_admin -> Bool,
         created_at -> Timestamp,
         updated_at -> Nullable<Timestamp>,
     }

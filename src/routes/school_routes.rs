@@ -1,4 +1,4 @@
-use actix_web::{web, Responder};
+use actix_web::{Responder, web};
 
 use crate::helper::enums::Identifier;
 use crate::helper::type_alias::DbPool;
@@ -6,6 +6,7 @@ use crate::helper::utils::get_connection;
 use crate::interfaces::repository_interface::IRepository;
 use crate::repositories::school_repository::SchoolRepository;
 use crate::schemas::school_schemas::{SchoolCreate, SchoolUpdate};
+use crate::services::auth_extractor::AuthExtractorService;
 
 pub struct SchoolRoutes;
 
@@ -13,6 +14,7 @@ impl SchoolRoutes {
     pub async fn create(
         pool: web::Data<DbPool>,
         school: web::Json<SchoolCreate>,
+        auth: AuthExtractorService,
     ) -> actix_web::Result<impl actix_web::Responder> {
         log::info!("Creating school: {:?}", school.name);
         let mut conn = get_connection(&pool).await;
@@ -30,6 +32,7 @@ impl SchoolRoutes {
     pub async fn get(
         pool: web::Data<DbPool>,
         id: web::Path<uuid::Uuid>,
+        auth: AuthExtractorService,
     ) -> actix_web::Result<impl Responder> {
         let mut conn = get_connection(&pool).await;
         let _id = Identifier::Id(id.into_inner());
@@ -48,6 +51,7 @@ impl SchoolRoutes {
         pool: web::Data<DbPool>,
         id: web::Path<uuid::Uuid>,
         school: web::Json<SchoolUpdate>,
+        auth: AuthExtractorService,
     ) -> actix_web::Result<impl Responder> {
         let mut conn = get_connection(&pool).await;
         let _id = Identifier::Id(id.into_inner());
@@ -68,6 +72,7 @@ impl SchoolRoutes {
     pub async fn delete(
         pool: web::Data<DbPool>,
         id: web::Path<uuid::Uuid>,
+        auth: AuthExtractorService,
     ) -> actix_web::Result<impl Responder> {
         let mut conn = get_connection(&pool).await;
         let _id = Identifier::Id(id.into_inner());
