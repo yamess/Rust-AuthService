@@ -14,7 +14,7 @@ impl PasswordRoutes {
         pool: web::Data<DbPool>,
         id: web::Path<uuid::Uuid>,
         password: web::Json<PasswordUpdate>,
-        auth: AuthExtractorService,
+        _: AuthExtractorService,
     ) -> actix_web::Result<impl Responder> {
         let mut conn = get_connection(&pool).await;
         let _id = id.into_inner();

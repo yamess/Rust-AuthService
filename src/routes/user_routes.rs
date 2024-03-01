@@ -34,7 +34,7 @@ impl UserRoutes {
     pub async fn get(
         pool: web::Data<DbPool>,
         id: web::Path<uuid::Uuid>,
-        auth: AuthExtractorService,
+        _auth: AuthExtractorService,
     ) -> actix_web::Result<impl Responder> {
         let id = Identifier::Id(id.into_inner());
         log::info!("Getting user: {:?}", id);
@@ -54,7 +54,7 @@ impl UserRoutes {
         pool: web::Data<DbPool>,
         id: web::Path<uuid::Uuid>,
         user: web::Json<UserUpdate>,
-        auth: AuthExtractorService,
+        _auth: AuthExtractorService,
     ) -> actix_web::Result<impl Responder> {
         let mut conn = get_connection(&pool).await;
         let _id = id.into_inner();
@@ -75,7 +75,7 @@ impl UserRoutes {
     pub async fn delete(
         pool: web::Data<DbPool>,
         id: web::Path<uuid::Uuid>,
-        auth: AuthExtractorService,
+        _auth: AuthExtractorService,
     ) -> actix_web::Result<impl Responder> {
         let mut conn = get_connection(&pool).await;
         let _id = id.into_inner();

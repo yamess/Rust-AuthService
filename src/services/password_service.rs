@@ -4,7 +4,7 @@ use diesel::QueryDsl;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
 
 use crate::helper::enums::Identifier;
-use crate::models::user_models::UserModel;
+use crate::models::user_model::UserModel;
 use crate::schema::users;
 use crate::schemas::user_schemas::PasswordUpdate;
 

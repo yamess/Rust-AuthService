@@ -11,7 +11,7 @@ use uuid::Uuid;
 use crate::helper::enums::Identifier;
 use crate::helper::exceptions::RepositoryError;
 use crate::interfaces::repository_interface::IRepository;
-use crate::models::user_models::UserModel;
+use crate::models::user_model::UserModel;
 use crate::schema::users;
 use crate::schemas::user_schemas::{PasswordUpdate, UserCreate, UserResponse, UserUpdate};
 use crate::services::password_service::PasswordService;

@@ -2,20 +2,20 @@ use std::collections::HashSet;
 
 use bcrypt;
 use chrono::Duration;
-use diesel::result::Error;
 use diesel::ExpressionMethods;
 use diesel::QueryDsl;
+use diesel::result::Error;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
-use jsonwebtoken::{decode, encode, Algorithm, DecodingKey, EncodingKey, Header, Validation};
+use jsonwebtoken::{Algorithm, decode, DecodingKey, encode, EncodingKey, Header, Validation};
 use serde::Deserialize;
 
 use crate::configs::common::AuthConfig;
 use crate::helper::enums::{Identifier, UserRole};
 use crate::interfaces::repository_interface::IRepository;
 use crate::models::school_model::SchoolModel;
-use crate::models::user_models::UserModel;
-use crate::schema::{schools, users};
-use crate::schemas::auth_schema::{LoginRequest, LoginResponse, TokenClaims};
+use crate::models::user_model::UserModel;
+use crate::schema::users;
+use crate::schemas::auth_schemas::{LoginRequest, LoginResponse, TokenClaims};
 use crate::services::password_service::PasswordService;
 use crate::services::token_service::TokenService;
 
@@ -55,19 +55,19 @@ impl AuthService {
                         active: _user.is_active,
                     },
                 )
-                .await;
+                    .await;
 
                 match _token {
-                    Err(e) => {
-                        log::error!("Failed to encode payload");
+                    Err(_e) => {
+                        log::error!("Failed to encode payload: {}", _e);
                         return Err(Error::NotFound);
                     }
                     Ok(tok) => Ok(LoginResponse { token: tok }),
                 }
             }
-            Err(e) => {
-                log::error!("Failed to get user: {}", e);
-                return Err(e);
+            Err(_e) => {
+                log::error!("Failed to get user: {}", _e);
+                return Err(_e);
             }
         }
     }

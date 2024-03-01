@@ -14,7 +14,7 @@ impl SchoolRoutes {
     pub async fn create(
         pool: web::Data<DbPool>,
         school: web::Json<SchoolCreate>,
-        auth: AuthExtractorService,
+        _: AuthExtractorService,
     ) -> actix_web::Result<impl actix_web::Responder> {
         log::info!("Creating school: {:?}", school.name);
         let mut conn = get_connection(&pool).await;
@@ -32,7 +32,7 @@ impl SchoolRoutes {
     pub async fn get(
         pool: web::Data<DbPool>,
         id: web::Path<uuid::Uuid>,
-        auth: AuthExtractorService,
+        _: AuthExtractorService,
     ) -> actix_web::Result<impl Responder> {
         let mut conn = get_connection(&pool).await;
         let _id = Identifier::Id(id.into_inner());
@@ -51,7 +51,7 @@ impl SchoolRoutes {
         pool: web::Data<DbPool>,
         id: web::Path<uuid::Uuid>,
         school: web::Json<SchoolUpdate>,
-        auth: AuthExtractorService,
+        _: AuthExtractorService,
     ) -> actix_web::Result<impl Responder> {
         let mut conn = get_connection(&pool).await;
         let _id = Identifier::Id(id.into_inner());
@@ -72,7 +72,7 @@ impl SchoolRoutes {
     pub async fn delete(
         pool: web::Data<DbPool>,
         id: web::Path<uuid::Uuid>,
-        auth: AuthExtractorService,
+        _: AuthExtractorService,
     ) -> actix_web::Result<impl Responder> {
         let mut conn = get_connection(&pool).await;
         let _id = Identifier::Id(id.into_inner());

@@ -1,2 +1,3 @@
 pub mod school_model;
-pub mod user_models;
+pub mod student_model;
+pub mod user_model;
