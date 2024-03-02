@@ -1,3 +1,3 @@
 Data model Diagram
 
-<img src="./model-diagrams.png">
+<img src="./model-diagrams.png"/>
