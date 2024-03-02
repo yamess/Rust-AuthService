@@ -16,10 +16,10 @@ diesel::table! {
         student_id -> Uuid,
         class_id -> Uuid,
         day_of_week -> Int2,
-        start_time -> Timestamp,
-        end_time -> Timestamp,
         created_at -> Timestamp,
         updated_at -> Nullable<Timestamp>,
+        start_time -> Time,
+        end_time -> Time,
     }
 }
 
