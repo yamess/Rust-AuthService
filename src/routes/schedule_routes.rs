@@ -13,7 +13,10 @@ impl ScheduleRoutes {
         pool: web::Data<DbPool>,
         schedule: web::Json<crate::schemas::schedule_schemas::ScheduleCreate>,
     ) -> actix_web::Result<impl actix_web::Responder> {
-        log::info!("Creating new schedule for student: {:?}", schedule.student_id);
+        log::info!(
+            "Creating new schedule for student: {:?}",
+            schedule.student_id
+        );
         let mut conn = get_connection(&pool).await;
         let schedule = ScheduleRepository::create(&mut conn, schedule.into_inner()).await;
         match schedule {

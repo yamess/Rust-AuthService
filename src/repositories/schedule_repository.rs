@@ -1,6 +1,6 @@
+use diesel::result::Error;
 use diesel::ExpressionMethods;
 use diesel::QueryDsl;
-use diesel::result::Error;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
 
 use crate::helper::enums::Identifier;
@@ -59,7 +59,10 @@ impl IRepository<'_, ScheduleCreate, ScheduleUpdate, ScheduleResponse> for Sched
                 .await
                 .map(Some),
             _ => {
-                log::error!("Wrong schedule identifier. Expecting int type. Got {:?}",type_of(id));
+                log::error!(
+                    "Wrong schedule identifier. Expecting int type. Got {:?}",
+                    type_of(id)
+                );
                 Err(Error::NotFound)
             }
         };
@@ -86,12 +89,18 @@ impl IRepository<'_, ScheduleCreate, ScheduleUpdate, ScheduleResponse> for Sched
         }
     }
 
-    async fn update(conn: &mut AsyncPgConnection, id: &Identifier, new_data: ScheduleUpdate) -> Result<ScheduleResponse, Error> {
+    async fn update(
+        conn: &mut AsyncPgConnection,
+        id: &Identifier,
+        new_data: ScheduleUpdate,
+    ) -> Result<ScheduleResponse, Error> {
         let old_data = match id {
-            Identifier::Id(id) => schedules::table
-                .find(id)
-                .get_result::<Self::Model>(conn)
-                .await?,
+            Identifier::Id(id) => {
+                schedules::table
+                    .find(id)
+                    .get_result::<Self::Model>(conn)
+                    .await?
+            }
             _ => {
                 log::error!(
                     "Wrong schedule identifier. Expecting int type. Got {:?}",
@@ -132,9 +141,16 @@ impl IRepository<'_, ScheduleCreate, ScheduleUpdate, ScheduleResponse> for Sched
 
     async fn delete(conn: &mut AsyncPgConnection, id: &Identifier) -> Result<usize, Error> {
         let deleted_schedule = match id {
-            Identifier::Id(id) => diesel::delete(schedules::table.find(id)).execute(conn).await,
+            Identifier::Id(id) => {
+                diesel::delete(schedules::table.find(id))
+                    .execute(conn)
+                    .await
+            }
             _ => {
-                log::error!("Wrong schedule identifier. Expecting int type. Got {:?}", type_of(id));
+                log::error!(
+                    "Wrong schedule identifier. Expecting int type. Got {:?}",
+                    type_of(id)
+                );
                 Err(Error::NotFound)?
             }
         };

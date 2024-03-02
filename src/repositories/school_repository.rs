@@ -1,6 +1,6 @@
+use diesel::result::Error;
 use diesel::ExpressionMethods;
 use diesel::QueryDsl;
-use diesel::result::Error;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
 
 use crate::helper::enums::Identifier;
@@ -50,7 +50,10 @@ impl IRepository<'_, SchoolCreate, SchoolUpdate, SchoolResponse> for SchoolRepos
                 .await
                 .map(Some),
             _ => {
-                log::error!("Wrong student identifier. Expecting int type. Got {:?}",type_of(id));
+                log::error!(
+                    "Wrong student identifier. Expecting int type. Got {:?}",
+                    type_of(id)
+                );
                 Err(Error::NotFound)
             }
         };

@@ -6,6 +6,7 @@ use helper::logger::initialize_logger;
 use routes::user_routes::UserRoutes;
 
 use crate::routes::auth_routes::AuthRoutes;
+use crate::routes::class_routes::ClassRoutes;
 use crate::routes::password_routes::PasswordRoutes;
 use crate::routes::schedule_routes::ScheduleRoutes;
 use crate::routes::school_routes::SchoolRoutes;
@@ -79,6 +80,13 @@ async fn main() -> std::io::Result<()> {
                     .route("/{id}", web::delete().to(StudentRoutes::delete)),
             )
             .service(
+                web::scope("/classes")
+                    .route("", web::post().to(ClassRoutes::create))
+                    .route("/{id}", web::get().to(ClassRoutes::get))
+                    .route("/{id}", web::patch().to(ClassRoutes::update))
+                    .route("/{id}", web::delete().to(ClassRoutes::delete)),
+            )
+            .service(
                 web::scope("/schedules")
                     .route("", web::post().to(ScheduleRoutes::create))
                     .route("/{id}", web::get().to(ScheduleRoutes::get))
@@ -89,7 +97,7 @@ async fn main() -> std::io::Result<()> {
         .bind(format!(
             "{}:{}",
             &configs.server.app_host,
-            &configs.server.app_port //&configs.server.app_host, &configs.server.app_port
+            &configs.server.app_port
         ))?
         .workers(num_cpus::get() * 2)
         .run()

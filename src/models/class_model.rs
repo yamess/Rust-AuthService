@@ -25,3 +25,15 @@ pub struct ClassModel {
     pub created_at: NaiveDateTime,
     pub updated_at: Option<NaiveDateTime>,
 }
+
+impl ClassModel {
+    pub fn new(name: String, student_id: Uuid) -> Self {
+        Self {
+            id: Uuid::new_v4(),
+            name,
+            student_id,
+            created_at: chrono::Utc::now().naive_utc(),
+            updated_at: None,
+        }
+    }
+}
