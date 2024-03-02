@@ -3,6 +3,8 @@ use diesel::{AsChangeset, Identifiable, Insertable, Queryable, Selectable};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
+use crate::schema::schedules;
+
 #[derive(
 Insertable,
 Queryable,
