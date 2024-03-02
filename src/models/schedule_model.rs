@@ -6,15 +6,15 @@ use uuid::Uuid;
 use crate::schema::schedules;
 
 #[derive(
-Insertable,
-Queryable,
-Identifiable,
-Selectable,
-Deserialize,
-Serialize,
-AsChangeset,
-Debug,
-PartialEq,
+    Insertable,
+    Queryable,
+    Identifiable,
+    Selectable,
+    Deserialize,
+    Serialize,
+    AsChangeset,
+    Debug,
+    PartialEq,
 )]
 #[diesel(table_name = schedules)]
 #[diesel(check_for_backend(diesel::pg::Pg))]

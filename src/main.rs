@@ -1,4 +1,4 @@
-use actix_web::{middleware, web, App, HttpResponse, HttpServer};
+use actix_web::{App, HttpResponse, HttpServer, middleware, web};
 
 use configs::common::ApplicationConfig;
 use databases::async_postgres::AsyncPostgresPool;
@@ -7,6 +7,7 @@ use routes::user_routes::UserRoutes;
 
 use crate::routes::auth_routes::AuthRoutes;
 use crate::routes::password_routes::PasswordRoutes;
+use crate::routes::schedule_routes::ScheduleRoutes;
 use crate::routes::school_routes::SchoolRoutes;
 use crate::routes::student_routes::StudentRoutes;
 
@@ -77,13 +78,20 @@ async fn main() -> std::io::Result<()> {
                     .route("/{id}", web::patch().to(StudentRoutes::update))
                     .route("/{id}", web::delete().to(StudentRoutes::delete)),
             )
+            .service(
+                web::scope("/schedules")
+                    .route("", web::post().to(ScheduleRoutes::create))
+                    .route("/{id}", web::get().to(ScheduleRoutes::get))
+                    .route("/{id}", web::patch().to(ScheduleRoutes::update))
+                    .route("/{id}", web::delete().to(ScheduleRoutes::delete)),
+            )
     })
-    .bind(format!(
-        "{}:{}",
-        &configs.server.app_host,
-        &configs.server.app_port //&configs.server.app_host, &configs.server.app_port
-    ))?
-    .workers(num_cpus::get() * 2)
-    .run()
-    .await
+        .bind(format!(
+            "{}:{}",
+            &configs.server.app_host,
+            &configs.server.app_port //&configs.server.app_host, &configs.server.app_port
+        ))?
+        .workers(num_cpus::get() * 2)
+        .run()
+        .await
 }
