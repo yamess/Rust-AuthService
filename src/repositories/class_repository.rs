@@ -1,6 +1,6 @@
+use diesel::result::Error;
 use diesel::ExpressionMethods;
 use diesel::QueryDsl;
-use diesel::result::Error;
 use diesel_async::{AsyncPgConnection, RunQueryDsl};
 
 use crate::helper::enums::Identifier;
@@ -15,7 +15,10 @@ pub struct ClassRepository;
 impl IRepository<'_, ClassCreate, ClassUpdate, ClassResponse> for ClassRepository {
     type Model = ClassModel;
 
-    async fn create(conn: &mut AsyncPgConnection, data: ClassCreate) -> Result<ClassResponse, Error> {
+    async fn create(
+        conn: &mut AsyncPgConnection,
+        data: ClassCreate,
+    ) -> Result<ClassResponse, Error> {
         let new_class = Self::Model::new(data.name, data.student_id);
         let created_class = diesel::insert_into(classes::table)
             .values(&new_class)
@@ -36,7 +39,10 @@ impl IRepository<'_, ClassCreate, ClassUpdate, ClassResponse> for ClassRepositor
         }
     }
 
-    async fn get(conn: &mut AsyncPgConnection, id: &Identifier) -> Result<Option<ClassResponse>, Error> {
+    async fn get(
+        conn: &mut AsyncPgConnection,
+        id: &Identifier,
+    ) -> Result<Option<ClassResponse>, Error> {
         let class = match id {
             Identifier::Id(id) => classes::table
                 .find(id)
@@ -45,9 +51,9 @@ impl IRepository<'_, ClassCreate, ClassUpdate, ClassResponse> for ClassRepositor
                 .map(Some),
             _ => {
                 log::error!(
-                        "Wrong class identifier. Expecting int type. Got {:?}",
-                        type_of(id)
-                    );
+                    "Wrong class identifier. Expecting int type. Got {:?}",
+                    type_of(id)
+                );
                 Err(Error::NotFound)
             }
         };
@@ -71,12 +77,18 @@ impl IRepository<'_, ClassCreate, ClassUpdate, ClassResponse> for ClassRepositor
         }
     }
 
-    async fn update(conn: &mut AsyncPgConnection, id: &Identifier, new_data: ClassUpdate) -> Result<ClassResponse, Error> {
+    async fn update(
+        conn: &mut AsyncPgConnection,
+        id: &Identifier,
+        new_data: ClassUpdate,
+    ) -> Result<ClassResponse, Error> {
         let old_data = match id {
-            Identifier::Id(id) => classes::table
-                .find(id)
-                .get_result::<Self::Model>(conn)
-                .await?,
+            Identifier::Id(id) => {
+                classes::table
+                    .find(id)
+                    .get_result::<Self::Model>(conn)
+                    .await?
+            }
             _ => {
                 log::error!(
                     "Wrong class identifier. Expecting int type. Got {:?}",
@@ -113,7 +125,10 @@ impl IRepository<'_, ClassCreate, ClassUpdate, ClassResponse> for ClassRepositor
         let number_deleted = match id {
             Identifier::Id(id) => diesel::delete(classes::table.find(id)).execute(conn).await,
             _ => {
-                log::error!("Wrong class identifier. Expecting uuid type. Got {:?}",type_of(id));
+                log::error!(
+                    "Wrong class identifier. Expecting uuid type. Got {:?}",
+                    type_of(id)
+                );
                 Err(Error::NotFound)?
             }
         };

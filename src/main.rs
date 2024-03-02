@@ -1,4 +1,4 @@
-use actix_web::{App, HttpResponse, HttpServer, middleware, web};
+use actix_web::{middleware, web, App, HttpResponse, HttpServer};
 
 use configs::common::ApplicationConfig;
 use databases::async_postgres::AsyncPostgresPool;
@@ -94,12 +94,11 @@ async fn main() -> std::io::Result<()> {
                     .route("/{id}", web::delete().to(ScheduleRoutes::delete)),
             )
     })
-        .bind(format!(
-            "{}:{}",
-            &configs.server.app_host,
-            &configs.server.app_port
-        ))?
-        .workers(num_cpus::get() * 2)
-        .run()
-        .await
+    .bind(format!(
+        "{}:{}",
+        &configs.server.app_host, &configs.server.app_port
+    ))?
+    .workers(num_cpus::get() * 2)
+    .run()
+    .await
 }
