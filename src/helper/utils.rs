@@ -1,7 +1,7 @@
 use actix_web::web;
 use bb8::PooledConnection;
-use diesel_async::AsyncPgConnection;
 use diesel_async::pooled_connection::AsyncDieselConnectionManager;
+use diesel_async::AsyncPgConnection;
 
 use crate::helper::type_alias::DbPool;
 
@@ -21,7 +21,6 @@ pub async fn get_connection(
 pub fn type_of<T>(_: T) -> &'static str {
     std::any::type_name::<T>()
 }
-
 
 #[cfg(test)]
 mod tests {

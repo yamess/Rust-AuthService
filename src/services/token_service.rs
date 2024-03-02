@@ -1,4 +1,4 @@
-use jsonwebtoken::{Algorithm, decode, DecodingKey, encode, EncodingKey, Header, Validation};
+use jsonwebtoken::{decode, encode, Algorithm, DecodingKey, EncodingKey, Header, Validation};
 
 use crate::configs::common::AuthConfig;
 use crate::schemas::auth_schemas::TokenClaims;
@@ -21,10 +21,10 @@ impl TokenService {
             &claim,
             &EncodingKey::from_secret(secret.as_ref()),
         )
-            .map_err(|e| {
-                log::error!("Failed to generate token: {}", e);
-                e
-            });
+        .map_err(|e| {
+            log::error!("Failed to generate token: {}", e);
+            e
+        });
         token
     }
 
@@ -53,7 +53,6 @@ impl TokenService {
     }
 }
 
-
 #[cfg(test)]
 mod tests {
     use chrono::{Duration, Utc};
@@ -75,8 +74,8 @@ mod tests {
             audience: "".to_string(),
         };
         let token_claims = TokenClaims {
-            exp: Utc::now().timestamp() + Duration::minutes(auth_config.token_expire_minutes)
-                .num_seconds(),
+            exp: Utc::now().timestamp()
+                + Duration::minutes(auth_config.token_expire_minutes).num_seconds(),
             iat: Utc::now().timestamp(),
             sub: Uuid::parse_str("70819fbb-e89c-454a-b80a-507c994264ee").unwrap(),
             email: "test@domain.com".to_string(),
@@ -97,8 +96,8 @@ mod tests {
             audience: "".to_string(),
         };
         let token_claims = TokenClaims {
-            exp: Utc::now().timestamp() + Duration::minutes(auth_config.token_expire_minutes)
-                .num_seconds(),
+            exp: Utc::now().timestamp()
+                + Duration::minutes(auth_config.token_expire_minutes).num_seconds(),
             iat: Utc::now().timestamp(),
             sub: Uuid::parse_str("70819fbb-e89c-454a-b80a-507c994264ee").unwrap(),
             email: "test@domain.com".to_string(),
@@ -117,7 +116,10 @@ mod tests {
         assert_eq!(claims.admin, false);
         assert_eq!(claims.active, true);
         assert_eq!(claims.tenant_id, None);
-        assert_eq!(claims.sub, Uuid::parse_str("70819fbb-e89c-454a-b80a-507c994264ee").unwrap());
+        assert_eq!(
+            claims.sub,
+            Uuid::parse_str("70819fbb-e89c-454a-b80a-507c994264ee").unwrap()
+        );
         assert_eq!(claims.exp > Utc::now().timestamp(), true);
         assert_eq!(claims.iat <= Utc::now().timestamp(), true);
     }
