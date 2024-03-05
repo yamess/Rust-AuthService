@@ -1,32 +1,42 @@
-use actix_web::{web, HttpResponse, Responder};
+use actix_web::{HttpResponse, post, Responder, web};
+use utoipa;
 
 use crate::helper::enums::Identifier;
 use crate::helper::type_alias::DbPool;
 use crate::helper::utils::get_connection;
 use crate::interfaces::repository_interface::IRepository;
 use crate::repositories::user_repository::UserRepository;
-use crate::schemas::user_schemas::{UserCreate, UserUpdate};
+use crate::schemas::user_schemas::{UserCreate, UserResponse, UserUpdate};
 use crate::services::auth_extractor::AuthExtractorService;
 
 pub struct UserRoutes;
 
-impl UserRoutes {
-    pub async fn create(
-        user: web::Json<UserCreate>,
-        pool: web::Data<DbPool>,
-    ) -> actix_web::Result<impl Responder> {
-        log::info!("Creating user: {:?}", user.email);
-        let mut conn = get_connection(&pool).await;
-        let _user = UserRepository::create(&mut conn, user.into_inner()).await;
-        match _user {
-            Ok(_user) => Ok(HttpResponse::Ok().json(_user)),
-            Err(e) => {
-                log::error!("Failed to create user: {}", e);
-                Err(actix_web::error::ErrorInternalServerError(e))
-            }
+#[utoipa::path(
+post,
+request_body(content = UserCreate, description = "User to create", content_type = "application/json"),
+responses(
+(status = 200, description = "User created", body = UserResponse),
+(status = 500, description = "Internal server error")
+)
+)]
+#[post("/users")]
+pub async fn create_user(
+    user: web::Json<UserCreate>,
+    pool: web::Data<DbPool>,
+) -> actix_web::Result<impl Responder> {
+    log::info!("Creating user: {:?}", user.email);
+    let mut conn = get_connection(&pool).await;
+    let _user = UserRepository::create(&mut conn, user.into_inner()).await;
+    match _user {
+        Ok(_user) => Ok(HttpResponse::Ok().json(_user)),
+        Err(e) => {
+            log::error!("Failed to create user: {}", e);
+            Err(actix_web::error::ErrorInternalServerError(e))
         }
     }
+}
 
+impl UserRoutes {
     pub async fn get(
         pool: web::Data<DbPool>,
         id: web::Path<uuid::Uuid>,

@@ -589,6 +589,7 @@ dependencies = [
  "rand",
  "serde",
  "tokio",
+ "utoipa",
  "utoipa-swagger-ui",
  "uuid",
 ]
@@ -2069,7 +2070,9 @@ dependencies = [
  "proc-macro-error",
  "proc-macro2",
  "quote",
+ "regex",
  "syn 2.0.50",
+ "uuid",
 ]
 
 [[package]]

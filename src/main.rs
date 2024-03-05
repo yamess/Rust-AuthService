@@ -1,16 +1,22 @@
-use actix_web::{middleware, web, App, HttpResponse, HttpServer};
+use actix_web::{App, HttpResponse, HttpServer, middleware, web};
+use utoipa;
+use utoipa::OpenApi;
+use utoipa_swagger_ui::SwaggerUi;
 
 use configs::common::ApplicationConfig;
 use databases::async_postgres::AsyncPostgresPool;
 use helper::logger::initialize_logger;
+use routes::auth_routes::AuthRoutes;
+use routes::class_routes::ClassRoutes;
+use routes::password_routes::PasswordRoutes;
+use routes::schedule_routes::ScheduleRoutes;
+use routes::school_routes::SchoolRoutes;
+use routes::student_routes::StudentRoutes;
 use routes::user_routes::UserRoutes;
+use schemas::user_schemas::{UserCreate, UserResponse, UserUpdate};
 
-use crate::routes::auth_routes::AuthRoutes;
-use crate::routes::class_routes::ClassRoutes;
-use crate::routes::password_routes::PasswordRoutes;
-use crate::routes::schedule_routes::ScheduleRoutes;
-use crate::routes::school_routes::SchoolRoutes;
-use crate::routes::student_routes::StudentRoutes;
+use crate::routes::health_routes::health;
+use crate::routes::user_routes::create_user;
 
 mod configs;
 mod databases;
@@ -41,25 +47,29 @@ async fn main() -> std::io::Result<()> {
         &configs.server.app_host,
         &configs.server.app_port
     );
-
+    #[derive(OpenApi)]
+    #[openapi(
+    paths(routes::health_routes::health, routes::user_routes::create_user),
+    components(schemas(UserCreate, UserResponse, UserUpdate))
+    )]
+    struct ApiDoc;
     HttpServer::new(move || {
         App::new()
             .wrap(middleware::Logger::default())
             .wrap(middleware::Logger::new("%a %{User-Agent}i"))
             .wrap(middleware::Compress::default())
-            .wrap(middleware::NormalizePath::new(
-                middleware::TrailingSlash::Trim,
-            ))
+
             .app_data(state.clone())
             .app_data(web::Data::new(pool.pool.clone()))
-            .route(
-                "/health",
-                web::to(|| async { HttpResponse::Ok().json("OK") }),
+            .service(
+                SwaggerUi::new("/docs/{_:.*}").url("/api-docs/openapi.json", ApiDoc::openapi()),
             )
+            .service(health)
             .route("/auth/login", web::post().to(AuthRoutes::login))
+            .service(create_user)
             .service(
                 web::scope("/users")
-                    .route("", web::post().to(UserRoutes::create))
+                    // .route("", web::post().to(routes::user_routes::UserRoutes::create_user))
                     .route("/{id}", web::get().to(UserRoutes::get))
                     .route("/{id}", web::put().to(UserRoutes::update))
                     .route("/{id}", web::delete().to(UserRoutes::delete))
@@ -94,11 +104,11 @@ async fn main() -> std::io::Result<()> {
                     .route("/{id}", web::delete().to(ScheduleRoutes::delete)),
             )
     })
-    .bind(format!(
-        "{}:{}",
-        &configs.server.app_host, &configs.server.app_port
-    ))?
-    .workers(num_cpus::get() * 2)
-    .run()
-    .await
+        .bind(format!(
+            "{}:{}",
+            &configs.server.app_host, &configs.server.app_port
+        ))?
+        .workers(num_cpus::get() * 2)
+        .run()
+        .await
 }
